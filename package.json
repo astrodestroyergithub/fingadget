@@ -1,10 +1,11 @@
 {
   "name": "fingadget-platform",
-  "version": "2.4.0",
-  "description": "Fingadget - Next-Gen Tech Journalism, Symposium Dispatches & Gizmo Cybernetics Platform",
+  "version": "3.0.0",
+  "description": "Fingadget — Next-Gen Tech Journalism, Symposium Dispatches & Gizmo Engineering Platform",
   "main": "app.js",
   "scripts": {
-    "start": "npx netlify-cli dev",
+    "start": "node app.js",
+    "dev": "npx netlify-cli dev",
     "deploy": "npx netlify-cli deploy --prod"
   },
   "dependencies": {
