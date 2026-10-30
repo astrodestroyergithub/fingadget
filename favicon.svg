@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="fngBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="50%" stop-color="#ECFDF5"/>
+      <stop offset="100%" stop-color="#FEF9C3"/>
+    </linearGradient>
+    <linearGradient id="fngGreenGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#047857"/>
+      <stop offset="52%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="fngGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+  <!-- Silver-White & Green-Gold Squircle Chassis -->
+  <rect x="2" y="2" width="60" height="60" rx="15" fill="url(#fngBg)" stroke="url(#fngGreenGold)" stroke-width="2.6"/>
+  <!-- Subatomic Orbital Ring -->
+  <ellipse cx="32" cy="32" rx="24" ry="10" transform="rotate(-30 32 32)" fill="none" stroke="url(#fngGreenGold)" stroke-width="1.6" stroke-dasharray="4 3" opacity="0.75"/>
+  <!-- Stylized 'F' + Circuit Fin Monogram -->
+  <path d="M19 16 H45 L41 23 H26 V29 H39 L36 36 H26 V49 H19 Z" fill="url(#fngGreenGold)"/>
+  <!-- Quantum Node & Gold Pulse -->
+  <circle cx="44" cy="19.5" r="3.4" fill="url(#fngGold)"/>
+  <circle cx="38" cy="44" r="4" fill="none" stroke="url(#fngGold)" stroke-width="2.2"/>
+  <path d="M26 44 H34" stroke="url(#fngGold)" stroke-width="2.2" stroke-linecap="round"/>
+</svg>

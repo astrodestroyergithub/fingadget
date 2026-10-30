@@ -1,0 +1,217 @@
+/* ============================================================================
+   FINGADGET - LUMINOUS SILVER-WHITE & EMERALD GREEN-GOLD DESIGN SYSTEM
+   ============================================================================ */
+
+:root {
+  --era-primary: #059669;
+  --era-secondary: #D97706;
+  --era-bg-tint: #ECFDF5;
+  --bg-main: #F8FAFC;
+  --bg-surface: #FFFFFF;
+  --bg-elevated: #F1F5F9;
+  --bg-glass: rgba(255, 255, 255, 0.88);
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
+  --border-subtle: rgba(5, 150, 105, 0.20);
+  --border-accent: rgba(217, 119, 6, 0.45);
+  --shadow-card: 0 14px 34px -12px rgba(5, 150, 105, 0.12), 0 4px 14px -4px rgba(15, 23, 42, 0.06);
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', sans-serif;
+  --font-serif: 'Merriweather', Georgia, serif;
+}
+
+body.dark-mode {
+  --bg-main: #07110E;
+  --bg-surface: #0D1F1A;
+  --bg-elevated: #132A23;
+  --bg-glass: rgba(13, 31, 26, 0.88);
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+  --border-subtle: rgba(16, 185, 129, 0.24);
+  --shadow-card: 0 18px 40px -15px rgba(0, 0, 0, 0.65);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-main);
+  background-image:
+    radial-gradient(circle at 10% 8%, color-mix(in srgb, var(--era-primary) 15%, transparent), transparent 40%),
+    radial-gradient(circle at 90% 14%, color-mix(in srgb, var(--era-secondary) 16%, transparent), transparent 42%),
+    linear-gradient(135deg, #FFFFFF 0%, var(--era-bg-tint) 48%, #FEFBF2 100%);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.35s ease, color 0.25s ease;
+}
+
+/* Subtle HD Mural Backdrop Overlay */
+.fngdgt-ambient-mural {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.04;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  mix-blend-mode: multiply;
+  transition: background-image 0.6s ease;
+}
+
+body.dark-mode .fngdgt-ambient-mural {
+  opacity: 0.05;
+  mix-blend-mode: screen;
+}
+
+/* Top Reading Progress Bar */
+#readingProgressBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3.5px;
+  width: 0%;
+  background: linear-gradient(90deg, #059669, #10B981, #D97706, #F59E0B);
+  z-index: 100;
+  transition: width 0.15s ease;
+}
+
+/* Green-Gold & Silver-White Gradient Utilities */
+.era-gradient-text {
+  background: linear-gradient(135deg, var(--era-primary) 0%, #0D9488 45%, var(--era-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.era-accent-bg {
+  background: linear-gradient(135deg, var(--era-primary) 0%, #10B981 50%, var(--era-secondary) 100%);
+  color: #FFFFFF;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+}
+
+.era-border-glow {
+  border: 1px solid var(--border-subtle);
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.era-border-glow:hover {
+  border-color: var(--era-primary);
+  box-shadow: 0 14px 34px -10px color-mix(in srgb, var(--era-primary) 24%, rgba(217, 119, 6, 0.15));
+}
+
+.surface-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.96) 0%, rgba(248, 250, 252, 0.94) 65%, rgba(240, 253, 244, 0.88) 100%);
+  border: 1px solid var(--border-subtle);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-card);
+  color: var(--text-primary);
+}
+
+body.dark-mode .surface-card {
+  background: linear-gradient(145deg, rgba(13, 31, 26, 0.95) 0%, rgba(19, 42, 35, 0.92) 100%);
+}
+
+.glass-header {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.92) 0%, rgba(240, 253, 244, 0.90) 50%, rgba(254, 252, 232, 0.92) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+  box-shadow: 0 4px 20px -6px rgba(5, 150, 105, 0.10);
+}
+
+body.dark-mode .glass-header {
+  background: rgba(10, 24, 20, 0.88);
+}
+
+/* Editorial Content & Long-Form Dharmic Typography */
+.editorial-prose h2 {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0.85rem;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.editorial-prose h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.65rem;
+  color: var(--era-primary);
+}
+
+.editorial-prose p {
+  margin-bottom: 1.25rem;
+  line-height: 1.82;
+}
+
+.editorial-prose blockquote {
+  margin: 1.6rem 0;
+  padding: 1.15rem 1.4rem;
+  border-left: 4px solid var(--era-primary);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(245, 158, 11, 0.08));
+  border-radius: 0 0.75rem 0.75rem 0;
+  font-style: italic;
+  color: var(--text-primary);
+}
+
+.editorial-prose .dharmic-verse {
+  margin: 1.75rem 0;
+  padding: 1.35rem 1.5rem;
+  border: 1px solid rgba(217, 119, 6, 0.40);
+  background: linear-gradient(135deg, rgba(254, 243, 199, 0.65), rgba(209, 250, 229, 0.55));
+  border-radius: 0.85rem;
+  font-family: var(--font-serif);
+  color: #064E3B;
+}
+
+body.dark-mode .editorial-prose .dharmic-verse {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.14), rgba(16, 185, 129, 0.12));
+  color: #FEF3C7;
+}
+
+/* Rich Text Editor Content Area */
+#adminEditorCanvas {
+  min-height: 320px;
+  max-height: 540px;
+  overflow-y: auto;
+  outline: none;
+}
+
+#adminEditorCanvas:focus {
+  border-color: var(--era-primary);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--era-primary) 25%, transparent);
+}
+
+/* Custom Scrollbar in Silver & Green-Gold */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #10B981, #D97706);
+  border-radius: 4px;
+}
+
+@media (max-width: 640px) {
+  .editorial-prose h2 {
+    font-size: 1.3rem;
+  }
+}

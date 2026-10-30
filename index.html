@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fingadget — Frontier Hardware, Deep Science &amp; Dharmic Cybernetics</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="min-h-screen flex flex-col selection:bg-emerald-200 selection:text-emerald-950">
+
+  <!-- Top Reading Progress Indicator -->
+  <div id="readingProgressBar"></div>
+
+  <!-- Subtle Ambient HD Mural Backdrop -->
+  <div id="ambientMuralLayer" class="fngdgt-ambient-mural"></div>
+
+  <!-- Toast Notification Stack -->
+  <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2.5 pointer-events-none"></div>
+
+  <!-- Breaking Symposium & Lab Dispatch Ribbon -->
+  <div class="relative z-20 bg-gradient-to-r from-emerald-50/95 via-white/95 to-amber-50/95 border-b border-emerald-600/20 px-4 py-2 text-xs">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-2.5 overflow-hidden">
+        <span class="px-2 py-0.5 rounded text-[10px] font-extrabold uppercase tracking-wider era-accent-bg shrink-0">LIVE PULSE</span>
+        <p id="breakingRibbonText" class="text-slate-700 font-medium truncate">
+          GLOBAL SYMPOSIUM DISPATCH: Sub-Angstrom Photonic Interconnects &amp; Fault-Tolerant Logical Qubits Unveiled at Geneva Laser Summit
+        </p>
+      </div>
+      <div class="flex items-center gap-3 shrink-0">
+        <!-- Global Language Selector (9 Languages) -->
+        <label for="headerLanguageSelect" class="sr-only">Language</label>
+        <select id="headerLanguageSelect" onchange="fngdgtChangeGlobalLanguage(this.value)"
+          class="bg-white border border-emerald-600/25 text-slate-800 text-xs rounded-lg px-2.5 py-1 focus:outline-none focus:border-emerald-600">
+          <option value="en">🌐 English</option>
+          <option value="bn">🌐 বাংলা (Bengali)</option>
+          <option value="hi">🌐 हिन्दी (Hindi)</option>
+          <option value="fr">🌐 Français (French)</option>
+          <option value="es">🌐 Español (Spanish)</option>
+          <option value="de">🌐 Deutsch (German)</option>
+          <option value="zh">🌐 中文 (Chinese)</option>
+          <option value="ja">🌐 日本語 (Japanese)</option>
+          <option value="ru">🌐 Русский (Russian)</option>
+        </select>
+
+        <!-- Light / Dark Appearance Toggle -->
+        <button type="button" onclick="fngdgtToggleColorMode()" class="px-2.5 py-1 rounded-lg bg-white border border-emerald-600/25 text-slate-800 hover:border-emerald-600 text-xs font-semibold" title="Switch Light / Dark Appearance">
+          ◐ Contrast
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky Main Navigation Header -->
+  <header class="sticky top-0 z-30 glass-header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-4">
+      <!-- Brand Identity + Embedded Creative SVG Favicon Monogram -->
+      <a href="#top" class="flex items-center gap-3 group">
+        <svg class="w-10 h-10 rounded-xl shadow-lg transition-transform duration-300 group-hover:scale-105 shrink-0" viewBox="0 0 64 64">
+          <defs>
+            <linearGradient id="hdrBg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FFFFFF"/>
+              <stop offset="55%" stop-color="#ECFDF5"/>
+              <stop offset="100%" stop-color="#FEF9C3"/>
+            </linearGradient>
+            <linearGradient id="hdrCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#047857"/>
+              <stop offset="50%" stop-color="#10B981"/>
+              <stop offset="100%" stop-color="#D97706"/>
+            </linearGradient>
+            <linearGradient id="hdrGold" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#F59E0B"/>
+              <stop offset="100%" stop-color="#FDE047"/>
+            </linearGradient>
+          </defs>
+          <rect x="2" y="2" width="60" height="60" rx="15" fill="url(#hdrBg)" stroke="url(#hdrCyan)" stroke-width="2.5"/>
+          <ellipse cx="32" cy="32" rx="24" ry="10" transform="rotate(-30 32 32)" fill="none" stroke="url(#hdrCyan)" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6"/>
+          <path d="M19 16 H45 L41 23 H26 V29 H39 L36 36 H26 V49 H19 Z" fill="url(#hdrCyan)"/>
+          <circle cx="44" cy="19.5" r="3.2" fill="url(#hdrGold)"/>
+          <circle cx="38" cy="44" r="4" fill="none" stroke="url(#hdrGold)" stroke-width="2"/>
+          <path d="M26 44 H34" stroke="url(#hdrGold)" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <span id="siteBrandTitle" class="text-xl sm:text-2xl font-extrabold tracking-tight era-gradient-text block leading-none">Fingadget</span>
+          <span id="siteBrandTagline" class="text-[11px] text-slate-600 hidden sm:block max-w-xs truncate mt-0.5">
+            The Definitive Frontier of Consumer Hardware, Deep Science &amp; Dharmic Cybernetics
+          </span>
+        </div>
+      </a>
+
+      <!-- Primary Navigation Links -->
+      <nav class="flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs font-semibold">
+        <a href="#feedSectionAnchor" data-i18n="navFeed" class="px-3 py-1.5 rounded-lg hover:bg-emerald-50/80 transition-colors">Editorial Feed</a>
+        <a href="#quickReadsAnchor" data-i18n="navQuickReads" class="px-3 py-1.5 rounded-lg hover:bg-emerald-50/80 transition-colors">Quick Dispatches</a>
+        <a href="#eraExplorerAnchor" data-i18n="navEras" class="px-3 py-1.5 rounded-lg hover:bg-emerald-50/80 transition-colors">Tech Eras</a>
+        <button type="button" onclick="fngdgtFilterDharmicOnly()" class="px-3 py-1.5 rounded-lg bg-amber-500/15 text-amber-800 border border-amber-400/30 hover:bg-amber-500/25 transition-colors">
+          ✦ <span data-i18n="navDharmic">Dharmic Long-Form</span>
+        </button>
+        <a href="#muralsSectionAnchor" data-i18n="navMurals" class="px-3 py-1.5 rounded-lg hover:bg-emerald-50/80 transition-colors hidden md:inline-block">Visual Murals</a>
+        <a href="#contactSectionAnchor" data-i18n="navContact" class="px-3 py-1.5 rounded-lg hover:bg-emerald-50/80 transition-colors hidden lg:inline-block">Newsroom Desk</a>
+      </nav>
+
+      <!-- Saved Bookmarks & Editorial Admin Button -->
+      <div class="flex items-center gap-2">
+        <button type="button" onclick="fngdgtFilterBookmarksOnly()" class="px-3 py-1.5 rounded-xl surface-card text-xs font-semibold flex items-center gap-1.5 hover:border-emerald-600">
+          <span>★</span>
+          <span data-i18n="navBookmarks">Saved</span>
+          <span id="headerBookmarkCount" class="px-1.5 py-0.2 rounded-full bg-emerald-500/20 text-emerald-700 text-[11px] font-bold">1</span>
+        </button>
+        <button type="button" onclick="fngdgtOpenAdminModal()" class="px-3.5 py-1.5 rounded-xl text-xs font-bold era-accent-bg shadow-md flex items-center gap-1.5">
+          <span>⚙</span>
+          <span data-i18n="navAdmin">Editorial Desk</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main id="top" class="relative z-10 flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-12">
+
+    <!-- 1. DYNAMIC TECHNOLOGY ERA HERO BANNER -->
+    <section id="eraBannerSection" class="surface-card era-border-glow overflow-hidden relative">
+      <div class="grid grid-cols-1 lg:grid-cols-12 items-center">
+        <div class="lg:col-span-7 p-6 sm:p-8 z-10">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold era-accent-bg mb-3">
+            <span>ERA CHRONICLE</span>
+            <span>•</span>
+            <span id="activeEraYearsBadge">Quantum Computing &amp; Subatomic Physics Era (2020 – Horizon)</span>
+          </div>
+          <h2 id="activeEraBannerTitle" class="text-xl sm:text-2xl md:text-3xl font-extrabold leading-tight mb-2.5">
+            Cryogenic Dilution Chandeliers, Topological Qubits &amp; Subatomic Colliders
+          </h2>
+          <p id="activeEraBannerSubtitle" class="text-sm text-slate-700 mb-4 max-w-2xl">
+            Harnessing superposition, entanglement, and Akasha-level field symmetries to solve intractable cosmos models.
+          </p>
+          <div class="flex flex-wrap items-center gap-2">
+            <a href="#eraExplorerAnchor" class="px-3.5 py-1.5 rounded-lg text-xs font-bold border border-emerald-500/50 text-emerald-700 hover:bg-cyan-400/10">
+              Switch Tech Era Theme ↓
+            </a>
+            <span id="activeEraMuralCaption" class="text-xs text-slate-600 italic">
+              Golden dilution cryostat surrounded by subatomic wave-particle interference rings.
+            </span>
+          </div>
+        </div>
+        <div class="lg:col-span-5 h-52 lg:h-64 relative overflow-hidden">
+          <img id="activeEraBannerImg" src="assets/quantum_subatomic.jpg" alt="Active Tech Era Banner" class="w-full h-full object-cover max-w-full" />
+          <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/30 to-transparent hidden lg:block"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. FEATURED COVER STORIES BENTO GRID -->
+    <section aria-label="Featured Cover Stories">
+      <div id="heroBentoContainer"></div>
+    </section>
+
+    <!-- 3. PULSE DISPATCHES & QUICK-READS STRIP -->
+    <section id="quickReadsAnchor" class="space-y-4">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 mb-1">
+            <!-- Custom SVG Laser Prism Clip-Art -->
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 2 22 22 22 12 2"/>
+              <line x1="12" y1="10" x2="22" y2="14"/>
+            </svg>
+            <span>INSTANT TELEMETRY</span>
+          </div>
+          <h2 data-i18n="quickReadsTitle" class="text-xl sm:text-2xl font-extrabold">Pulse Dispatches &amp; Quick Reads</h2>
+          <p data-i18n="quickReadsSub" class="text-xs sm:text-sm text-slate-600">Rapid synthesis from global hardware labs, particle colliders, and symposium stages.</p>
+        </div>
+      </div>
+      <div id="quickReadsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4"></div>
+    </section>
+
+    <!-- 4. THE COMMON TECHIE BLOG FEED (Filter / Sort / Categorize / Paginate) -->
+    <section id="feedSectionAnchor" class="space-y-6">
+      <div class="flex flex-wrap items-end justify-between gap-4 border-b border-emerald-700/20 pb-4">
+        <div>
+          <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 mb-1">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="9"/>
+              <ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(35 12 12)"/>
+            </svg>
+            <span>EDITORIAL STREAM</span>
+          </div>
+          <h2 data-i18n="feedHeading" class="text-2xl sm:text-3xl font-extrabold">The Common Techie Feed</h2>
+          <p data-i18n="feedSub" class="text-xs sm:text-sm text-slate-600">Filter, sort, categorize, and explore deep hardware reviews, laser symposium coverage, and Dharmic cybernetics.</p>
+        </div>
+        <span id="feedResultsCountBadge" class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-500/35">8 Stories</span>
+      </div>
+
+      <!-- Category Pills Bar -->
+      <div id="categoryPillsContainer" class="flex flex-wrap items-center gap-2"></div>
+
+      <!-- Multi-Dimensional Filter, Search, Sort & View Mode Toolbar -->
+      <div class="surface-card p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-3 items-center">
+        <!-- Search Input (4 cols) -->
+        <div class="lg:col-span-4 relative">
+          <input type="text" id="feedSearchInput" data-i18n-placeholder="searchPlaceholder"
+            placeholder="Search stories, hardware, quantum physics, or Dharmic essays..."
+            class="w-full pl-9 pr-3.5 py-2 rounded-xl bg-white border border-emerald-600/25 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-emerald-600" />
+          <svg class="w-4 h-4 text-slate-600 absolute left-3 top-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </div>
+
+        <!-- Era Filter (3 cols) -->
+        <div class="lg:col-span-3">
+          <select id="feedEraFilterSelect" aria-label="Filter by Tech Era"
+            class="w-full px-3 py-2 rounded-xl bg-white border border-emerald-600/25 text-xs text-slate-800 focus:outline-none focus:border-emerald-600">
+            <option value="ALL">All Tech Eras</option>
+          </select>
+        </div>
+
+        <!-- Format Filter (2 cols) -->
+        <div class="lg:col-span-2">
+          <select id="feedFormatFilterSelect" aria-label="Filter by Format"
+            class="w-full px-3 py-2 rounded-xl bg-white border border-emerald-600/25 text-xs text-slate-800 focus:outline-none focus:border-emerald-600">
+            <option value="ALL" data-i18n="filterAllFormats">All Formats</option>
+            <option value="dharmic" data-i18n="formatDharmic">Dharmic Long-Form</option>
+            <option value="standard" data-i18n="formatStandard">Standard Features</option>
+            <option value="toprated" data-i18n="formatTopRated">Top Rated (9.2+)</option>
+            <option value="bookmarked" data-i18n="formatBookmarked">Saved Bookmarks</option>
+          </select>
+        </div>
+
+        <!-- Sort Select (2 cols) -->
+        <div class="lg:col-span-2">
+          <select id="feedSortSelect" aria-label="Sort Stories"
+            class="w-full px-3 py-2 rounded-xl bg-white border border-emerald-600/25 text-xs text-slate-800 focus:outline-none focus:border-emerald-600">
+            <option value="latest" data-i18n="sortLatest">Sort: Latest First</option>
+            <option value="popular" data-i18n="sortPopular">Sort: Most Read</option>
+            <option value="rating" data-i18n="sortRating">Sort: Highest Score</option>
+            <option value="longest" data-i18n="sortLongest">Sort: Deepest Reads</option>
+            <option value="shortest" data-i18n="sortShortest">Sort: Quickest Reads</option>
+          </select>
+        </div>
+
+        <!-- Page Size & Layout Toggle (1 col) -->
+        <div class="lg:col-span-1 flex items-center justify-end gap-1.5">
+          <select id="feedPerPageSelect" aria-label="Stories per page" title="Stories per page"
+            class="px-2 py-2 rounded-xl bg-white border border-emerald-600/25 text-xs text-slate-800">
+            <option value="4">4 / pg</option>
+            <option value="6">6 / pg</option>
+            <option value="8">8 / pg</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Feed Articles Grid -->
+      <div id="mainBlogFeedContainer"></div>
+
+      <!-- Pagination Bar -->
+      <div id="feedPaginationContainer" class="pt-3"></div>
+    </section>
+
+    <!-- 5. INTERACTIVE CHRONICLE OF 8 TECHNOLOGY ERAS -->
+    <section id="eraExplorerAnchor" class="space-y-5 pt-4">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <div class="text-xs font-bold uppercase tracking-wider text-emerald-700 mb-1">DYNAMIC THEME ENGINE</div>
+          <h2 data-i18n="eraExplorerTitle" class="text-2xl sm:text-3xl font-extrabold">Chronicle of Technology Eras</h2>
+          <p data-i18n="eraExplorerSub" class="text-xs sm:text-sm text-slate-600">Select any historical or frontier era to preview its visual banner and shift the platform aesthetic.</p>
+        </div>
+      </div>
+      <div id="eraExplorerGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
+    </section>
+
+    <!-- 6. CAPTIVATING HD MURALS, CLIP-ARTS & VISUAL GALLERY -->
+    <section id="muralsSectionAnchor" class="space-y-5 pt-4">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <div class="text-xs font-bold uppercase tracking-wider text-emerald-700 mb-1">HIGH-DEFINITION EXHIBITION</div>
+          <h2 data-i18n="muralGalleryTitle" class="text-2xl sm:text-3xl font-extrabold">Captivating High-Definition Murals &amp; Visuals</h2>
+          <p data-i18n="muralGallerySub" class="text-xs sm:text-sm text-slate-600">Architectural photography and scientific visualizations from global summits, orbital stations, and subatomic labs.</p>
+        </div>
+      </div>
+      <div id="muralsShowcaseGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </section>
+
+    <!-- 7. GLOBAL NEWSROOM & SYMPOSIUM CONTACT DESK -->
+    <section id="contactSectionAnchor" class="space-y-4 pt-4">
+      <div>
+        <div class="text-xs font-bold uppercase tracking-wider text-emerald-700 mb-1">GLOBAL DISPATCH</div>
+        <h2 data-i18n="contactHeading" class="text-2xl font-extrabold">Global Newsroom &amp; Symposium Desk</h2>
+        <p data-i18n="contactSub" class="text-xs sm:text-sm text-slate-600">Reach our hardware testing laboratories, symposium correspondents, and editorial leadership.</p>
+      </div>
+      <div id="contactDetailsContainer"></div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="relative z-10 border-t border-emerald-700/20 bg-gradient-to-r from-emerald-50/90 via-white to-amber-50/90 mt-14 py-8 px-4 sm:px-6 text-xs text-slate-600">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <span class="font-extrabold text-base era-gradient-text">Fingadget</span>
+        <span>•</span>
+        <span data-i18n="footerRights">Fingadget Global Media. Crafted for technologists, scientists, and contemplative thinkers.</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="#top" class="hover:text-emerald-700">Back to Top ↑</a>
+        <button type="button" onclick="fngdgtOpenAdminModal()" class="hover:text-emerald-700">Editorial Desk Login</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       MODAL 1: FULL ARTICLE & LONG-FORM DHARMIC READER
+       ======================================================================== -->
+  <div id="articleReaderModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-white/45 backdrop-blur-md p-3 sm:p-6 overflow-y-auto">
+    <div class="surface-card max-w-4xl w-full max-h-[92vh] flex flex-col overflow-hidden border border-emerald-500/35 shadow-2xl">
+      <div class="px-5 py-3.5 border-b border-emerald-700/20 flex items-center justify-between bg-gradient-to-r from-emerald-50/90 via-white to-amber-50/90">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-700">Fingadget Editorial Reader</span>
+        <button type="button" onclick="fngdgtCloseArticleModal()" class="px-3 py-1 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-xs font-bold text-slate-800">
+          ✕ Close Reader
+        </button>
+      </div>
+      <div id="articleReaderBody" class="p-5 sm:p-8 overflow-y-auto flex-1"></div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 2: ADMIN PORTAL, RICH EDITOR, ERA CUSTOMIZER & EXTENSIVE DOCS
+       ======================================================================== -->
+  <div id="adminPortalModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-white/45 backdrop-blur-md p-3 sm:p-6 overflow-y-auto">
+    <div class="surface-card max-w-6xl w-full max-h-[94vh] flex flex-col overflow-hidden border border-amber-500/45 shadow-2xl">
+
+      <!-- Modal Top Bar -->
+      <div class="px-6 py-4 border-b border-emerald-700/20 flex items-center justify-between bg-white">
+        <div class="flex items-center gap-2.5">
+          <span class="w-3 h-3 rounded-full era-accent-bg"></span>
+          <h2 class="text-base sm:text-lg font-extrabold">Fingadget Editorial &amp; Platform Management Suite</h2>
+        </div>
+        <button type="button" onclick="fngdgtCloseAdminModal()" class="px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-xs font-bold text-slate-800">
+          ✕ Close Window
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-5 sm:p-7 overflow-y-auto flex-1">
+
+        <!-- A. ADMIN LOGIN GATE -->
+        <div id="adminLoginGate" class="max-w-md mx-auto my-8 surface-card p-6 sm:p-8 border border-emerald-700/20">
+          <h3 class="text-xl font-extrabold mb-2">Administrator Sign In</h3>
+          <p class="text-xs text-slate-600 mb-5">
+            Authenticate using your Netlify environment variables (<code class="text-emerald-700">ADMIN_USERNAME</code> and <code class="text-emerald-700">ADMIN_PASSWORD</code>).
+            For interactive preview, default credentials are pre-filled below.
+          </p>
+          <form onsubmit="fngdgtHandleAdminLogin(event)" class="space-y-4">
+            <div>
+              <label for="adminLoginUsername" class="block text-xs font-bold uppercase text-slate-700 mb-1">Admin Username</label>
+              <input type="text" id="adminLoginUsername" value="admin" required
+                class="w-full px-3.5 py-2 rounded-xl bg-white border border-emerald-600/25 text-sm text-slate-900" />
+            </div>
+            <div>
+              <label for="adminLoginPassword" class="block text-xs font-bold uppercase text-slate-700 mb-1">Admin Password</label>
+              <input type="password" id="adminLoginPassword" value="fingadget2026" required
+                class="w-full px-3.5 py-2 rounded-xl bg-white border border-emerald-600/25 text-sm text-slate-900" />
+            </div>
+            <button type="submit" class="w-full py-2.5 rounded-xl text-xs font-extrabold uppercase tracking-wider era-accent-bg shadow-lg">
+              Unlock Editorial &amp; Backend Controls
+            </button>
+          </form>
+        </div>
+
+        <!-- B. AUTHENTICATED ADMIN DASHBOARD -->
+        <div id="adminDashboardSuite" class="hidden space-y-6">
+
+          <!-- Admin Navigation Tabs -->
+          <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-emerald-700/20">
+            <div class="flex flex-wrap items-center gap-2">
+              <button type="button" data-admin-tab="posts" onclick="fngdgtSwitchAdminTab('posts')" class="admin-tab-btn px-3.5 py-2 rounded-lg text-xs font-bold era-accent-bg">
+                1. Rich Blog &amp; Dharmic Editor
+              </button>
+              <button type="button" data-admin-tab="quickreads" onclick="fngdgtSwitchAdminTab('quickreads')" class="admin-tab-btn px-3.5 py-2 rounded-lg text-xs font-bold bg-emerald-50 text-slate-700">
+                2. Quick-Reads Manager
+              </button>
+              <button type="button" data-admin-tab="eras" onclick="fngdgtSwitchAdminTab('eras')" class="admin-tab-btn px-3.5 py-2 rounded-lg text-xs font-bold bg-emerald-50 text-slate-700">
+                3. Tech Era Banners &amp; Themes
+              </button>
+              <button type="button" data-admin-tab="settings" onclick="fngdgtSwitchAdminTab('settings')" class="admin-tab-btn px-3.5 py-2 rounded-lg text-xs font-bold bg-emerald-50 text-slate-700">
+                4. Language (9) &amp; Contact Info
+              </button>
+              <button type="button" data-admin-tab="audit" onclick="fngdgtSwitchAdminTab('audit')" class="admin-tab-btn px-3.5 py-2 rounded-lg text-xs font-bold bg-emerald-50 text-slate-700">
+                5. Persistent Audit Logs
+              </button>
+              <button type="button" data-admin-tab="docs" onclick="fngdgtSwitchAdminTab('docs')" class="admin-tab-btn px-3.5 py-2 rounded-lg text-xs font-bold bg-emerald-50 text-amber-800">
+                6. Admin Documentation &amp; APIs
+              </button>
+            </div>
+            <div class="flex items-center gap-2">
+              <button type="button" onclick="fngdgtResetFactoryState()" class="px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-xs text-slate-700">
+                Restore Seed Data
+              </button>
+              <button type="button" onclick="fngdgtAdminLogout()" class="px-3 py-1.5 rounded-lg bg-rose-500/20 text-rose-300 hover:bg-rose-500/30 text-xs font-bold">
+                Sign Out
+              </button>
+            </div>
+          </div>
+
+          <!-- TAB 1: BLOG POSTS & RICH TEXT FORMATTING UTILITY -->
+          <div id="adminTab_posts" class="admin-tab-panel space-y-6">
+            <form id="adminPostForm" onsubmit="fngdgtSaveAdminPost(event)" class="surface-card p-5 space-y-4 border border-emerald-700/20">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <h3 class="text-base font-extrabold">Compose / Edit Blog Post (Supports Long-Form Dharmic Treatises)</h3>
+                <button type="button" onclick="fngdgtResetAdminPostForm()" class="text-xs text-emerald-700 hover:underline">Clear / New Post</button>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <div class="md:col-span-2">
+                  <label class="block text-[11px] font-bold uppercase text-slate-600 mb-1">Headline / Title</label>
+                  <input type="text" id="adminPostTitle" required placeholder="Enter article headline..."
+                    class="w-full px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs sm:text-sm text-slate-900" />
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold uppercase text-slate-600 mb-1">Category</label>
+                  <select id="adminPostCategory" class="w-full px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900">
+                    <option value="Quantum & Subatomic">Quantum &amp; Subatomic</option>
+                    <option value="Dharmic Philosophy">Dharmic Philosophy</option>
+                    <option value="Apple & Personal Tech">Apple &amp; Personal Tech</option>
+                    <option value="Symposiums & Summits">Symposiums &amp; Summits</option>
+                    <option value="Space Tech">Space Tech</option>
+                    <option value="Silicon & ICs">Silicon &amp; ICs</option>
+                    <option value="AI & Neural Systems">AI &amp; Neural Systems</option>
+                    <option value="Industrial Heritage">Industrial Heritage</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+                <div class="md:col-span-2">
+                  <label class="block text-[11px] font-bold uppercase text-slate-600 mb-1">Subtitle / Deck</label>
+                  <input type="text" id="adminPostSubtitle" placeholder="Concise deck or philosophical thesis..."
+                    class="w-full px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900" />
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold uppercase text-slate-600 mb-1">Technology Era</label>
+                  <select id="adminPostEraSelect" class="w-full px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900"></select>
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold uppercase text-slate-600 mb-1">Author Name</label>
+                  <input type="text" id="adminPostAuthor" value="Dr. Aris Thorne"
+                    class="w-full px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900" />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-3 items-center">
+                <div>
+                  <label class="block text-[11px] font-bold uppercase text-slate-600 mb-1">HD Cover Image</label>
+                  <select id="adminPostCoverImage" class="w-full px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900">
+                    <option value="assets/summit_laser.jpg">Tech Summit &amp; Laser Show (HD)</option>
+                    <option value="assets/dharmic_industrial_mural.jpg">Dharmic Mandala &amp; Brass Gears (HD)</option>
+                    <option value="assets/quantum_subatomic.jpg">Quantum Cryostat &amp; Subatomic (HD)</option>
+                    <option value="assets/apple_spatial.jpg">Apple Titanium &amp; Spatial Studio (HD)</option>
+                    <option value="assets/space_station.jpg">Orbital Space Station (HD)</option>
+                    <option value="assets/silicon_wafer.jpg">Silicon Wafer &amp; ICs (HD)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold uppercase text-slate-600 mb-1">Editorial Score (1-10)</label>
+                  <input type="number" step="0.1" min="1" max="10" id="adminPostScore" value="9.6"
+                    class="w-full px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900" />
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold uppercase text-slate-600 mb-1">Tags (comma-separated)</label>
+                  <input type="text" id="adminPostTags" value="Quantum, Dharmic, Symposium"
+                    class="w-full px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900" />
+                </div>
+                <div class="flex items-center gap-4 pt-4">
+                  <label class="flex items-center gap-1.5 text-xs text-amber-800 font-semibold cursor-pointer">
+                    <input type="checkbox" id="adminPostIsDharmic" /> Dharmic Long-Form
+                  </label>
+                  <label class="flex items-center gap-1.5 text-xs text-emerald-700 font-semibold cursor-pointer">
+                    <input type="checkbox" id="adminPostIsFeatured" /> Featured Cover
+                  </label>
+                </div>
+              </div>
+
+              <!-- RICH FORMATTING UTILITIES TOOLBAR -->
+              <div class="p-3 rounded-xl bg-white border border-emerald-600/25 space-y-2.5">
+                <div class="flex flex-wrap items-center gap-2">
+                  <!-- Font Family -->
+                  <select id="adminEditorFontFamily" onchange="fngdgtApplyEditorWrapperStyle()" title="Font Family"
+                    class="px-2.5 py-1.5 rounded bg-emerald-50 border border-emerald-600/25 text-xs text-slate-900">
+                    <option value="Inter, sans-serif">Font: Inter Sans</option>
+                    <option value="Merriweather, serif">Font: Merriweather Serif (Dharmic)</option>
+                    <option value="'Space Grotesk', sans-serif">Font: Space Grotesk</option>
+                    <option value="'JetBrains Mono', monospace">Font: JetBrains Mono</option>
+                    <option value="Georgia, serif">Font: Classical Georgia</option>
+                  </select>
+
+                  <!-- Font Size -->
+                  <select id="adminEditorFontSize" onchange="fngdgtApplyEditorWrapperStyle()" title="Font Size"
+                    class="px-2.5 py-1.5 rounded bg-emerald-50 border border-emerald-600/25 text-xs text-slate-900">
+                    <option value="0.95rem">Size: Compact (0.95rem)</option>
+                    <option value="1.08rem" selected>Size: Editorial (1.08rem)</option>
+                    <option value="1.18rem">Size: Long-Form (1.18rem)</option>
+                    <option value="1.32rem">Size: Monumental (1.32rem)</option>
+                  </select>
+
+                  <!-- Font Color -->
+                  <label class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-50 border border-emerald-600/25 text-xs">
+                    <span>Color</span>
+                    <input type="color" id="adminEditorFontColor" value="#0F172A" onchange="fngdgtApplyEditorWrapperStyle()" class="w-5 h-5 bg-transparent border-0 cursor-pointer" />
+                  </label>
+
+                  <!-- Text Alignment / Justify -->
+                  <select id="adminEditorTextAlign" onchange="fngdgtApplyEditorWrapperStyle()" title="Paragraph Justification"
+                    class="px-2.5 py-1.5 rounded bg-emerald-50 border border-emerald-600/25 text-xs text-slate-900">
+                    <option value="left">Align: Left</option>
+                    <option value="justify">Align: Justify Full</option>
+                    <option value="center">Align: Center</option>
+                    <option value="right">Align: Right</option>
+                  </select>
+
+                  <!-- Inline Formatting Buttons -->
+                  <button type="button" onclick="fngdgtFormatEditor('bold')" class="px-2.5 py-1 rounded bg-emerald-50 hover:bg-emerald-100 text-xs font-extrabold" title="Bold">B</button>
+                  <button type="button" onclick="fngdgtFormatEditor('italic')" class="px-2.5 py-1 rounded bg-emerald-50 hover:bg-emerald-100 text-xs italic" title="Italic">I</button>
+                  <button type="button" onclick="fngdgtFormatEditor('underline')" class="px-2.5 py-1 rounded bg-emerald-50 hover:bg-emerald-100 text-xs underline" title="Underline">U</button>
+                  <button type="button" onclick="fngdgtFormatEditor('justifyLeft')" class="px-2.5 py-1 rounded bg-emerald-50 hover:bg-emerald-100 text-xs" title="Align Left">⇤</button>
+                  <button type="button" onclick="fngdgtFormatEditor('justifyCenter')" class="px-2.5 py-1 rounded bg-emerald-50 hover:bg-emerald-100 text-xs" title="Align Center">⇔</button>
+                  <button type="button" onclick="fngdgtFormatEditor('justifyFull')" class="px-2.5 py-1 rounded bg-emerald-50 hover:bg-emerald-100 text-xs" title="Justify">☰</button>
+                  <button type="button" onclick="fngdgtFormatEditor('formatBlock', 'BLOCKQUOTE')" class="px-2.5 py-1 rounded bg-emerald-50 hover:bg-emerald-100 text-xs" title="Blockquote">❝ Quote</button>
+                  <button type="button" onclick="fngdgtFormatEditor('formatBlock', 'H2')" class="px-2.5 py-1 rounded bg-emerald-50 hover:bg-emerald-100 text-xs font-bold" title="Subheading">H2</button>
+                  <button type="button" onclick="fngdgtInsertDharmicBlockquote()" class="px-2.5 py-1 rounded bg-amber-500/20 text-amber-800 border border-amber-400/40 text-xs font-semibold">
+                    + Insert Dharmic Verse Block
+                  </button>
+                </div>
+
+                <!-- Live Character & Word Counter Bar -->
+                <div class="flex flex-wrap items-center justify-between text-[11px] text-slate-600 pt-2 border-t border-emerald-700/20">
+                  <span>Unlimited length supported for extensive Dharmic &amp; scientific monographs</span>
+                  <div class="flex items-center gap-4 font-mono">
+                    <span>Words: <strong id="editorLiveWordCount" class="text-emerald-700">12</strong></span>
+                    <span>Characters: <strong id="editorLiveCharCount" class="text-emerald-700">78</strong></span>
+                    <span>Est. Read: <strong id="editorLiveReadTime" class="text-amber-800">1 min</strong></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Editable Rich Content Canvas -->
+              <div id="adminEditorCanvas" contenteditable="true"
+                class="w-full p-4 rounded-xl bg-white border border-emerald-600/25 text-sm text-slate-900 editorial-prose">
+                <p>Compose your rich-formatted technology report or extensive Dharmic treatise here...</p>
+              </div>
+
+              <div class="flex justify-end">
+                <button type="submit" id="adminPostSubmitBtn" class="px-6 py-2.5 rounded-xl text-xs font-extrabold uppercase tracking-wider era-accent-bg shadow-lg">
+                  Publish Blog Post to Feed
+                </button>
+              </div>
+            </form>
+
+            <!-- Existing Posts Management Table -->
+            <div class="surface-card p-5 border border-emerald-700/20 overflow-x-auto">
+              <h4 class="text-sm font-bold mb-3">Published Articles (<span class="text-emerald-700">fngdgt_blog_posts</span>)</h4>
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="border-b border-emerald-600/25 text-[11px] uppercase text-slate-600">
+                    <th class="py-2 pr-3">Title</th>
+                    <th class="py-2 px-2">Category</th>
+                    <th class="py-2 px-2">Length</th>
+                    <th class="py-2 px-2">Format</th>
+                    <th class="py-2 pl-2 text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminPostsTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- TAB 2: QUICK-READS MANAGER -->
+          <div id="adminTab_quickreads" class="admin-tab-panel hidden space-y-5">
+            <form onsubmit="fngdgtSaveAdminQuickRead(event)" class="surface-card p-5 border border-emerald-700/20 space-y-3">
+              <h3 class="text-base font-extrabold">Add New Quick-Read / Lab Dispatch (<span class="text-emerald-700">fngdgt_quick_reads</span>)</h3>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <input type="text" id="adminQrTitle" required placeholder="Quick-Read Headline..." class="md:col-span-2 px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900" />
+                <input type="text" id="adminQrBadge" value="Symposium Live" placeholder="Badge (e.g. Lab Dispatch)" class="px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900" />
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <select id="adminQrCategory" class="px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900">
+                  <option value="Quantum & Subatomic">Quantum &amp; Subatomic</option>
+                  <option value="Apple & Personal Tech">Apple &amp; Personal Tech</option>
+                  <option value="Silicon & ICs">Silicon &amp; ICs</option>
+                  <option value="Space Tech">Space Tech</option>
+                  <option value="Dharmic Philosophy">Dharmic Philosophy</option>
+                </select>
+                <select id="adminQrEraSelect" class="px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900"></select>
+                <input type="text" id="adminQrReadTime" value="45 sec read" placeholder="Read duration..." class="px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900" />
+              </div>
+              <textarea id="adminQrSummary" required rows="2" placeholder="Concise 1-2 sentence technical summary..." class="w-full px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900"></textarea>
+              <div class="flex justify-end">
+                <button type="submit" class="px-5 py-2 rounded-xl text-xs font-extrabold era-accent-bg">Publish Quick-Read</button>
+              </div>
+            </form>
+            <div id="adminQuickReadsList" class="space-y-2.5"></div>
+          </div>
+
+          <!-- TAB 3: TECH ERA BANNERS & DYNAMIC THEME CUSTOMIZER -->
+          <div id="adminTab_eras" class="admin-tab-panel hidden space-y-5">
+            <form onsubmit="fngdgtSaveAdminEraBanner(event)" class="surface-card p-5 border border-emerald-700/20 space-y-3">
+              <h3 class="text-base font-extrabold">Customize or Add Tech Era Banner &amp; Platform Theme (<span class="text-emerald-700">fngdgt_tech_eras</span>)</h3>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <input type="text" id="adminEraSlug" required placeholder="Era slug (e.g. quantum-subatomic)" class="px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900" />
+                <input type="text" id="adminEraName" required placeholder="Era Name (e.g. Quantum Computing Era)" class="px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900" />
+                <input type="text" id="adminEraYears" required placeholder="Period (e.g. 2020 – Horizon)" class="px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900" />
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <input type="text" id="adminEraBannerTitle" required placeholder="Banner Headline..." class="px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900" />
+                <select id="adminEraBannerImage" class="px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900">
+                  <option value="assets/quantum_subatomic.jpg">Quantum Cryostat &amp; Subatomic Particles</option>
+                  <option value="assets/summit_laser.jpg">Tech Conference &amp; Laser Show Auditorium</option>
+                  <option value="assets/apple_spatial.jpg">Apple Titanium &amp; Spatial Computing</option>
+                  <option value="assets/space_station.jpg">Orbital Space Technology Station</option>
+                  <option value="assets/silicon_wafer.jpg">Silicon Wafer &amp; Integrated Circuits</option>
+                  <option value="assets/dharmic_industrial_mural.jpg">Industrial Brass Gears &amp; Dharmic Mandala</option>
+                </select>
+              </div>
+              <textarea id="adminEraBannerSubtitle" required rows="2" placeholder="Banner Subtitle / Historical Narrative..." class="w-full px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900"></textarea>
+              <div class="flex flex-wrap items-center justify-between gap-4">
+                <div class="flex items-center gap-4 text-xs">
+                  <label class="flex items-center gap-2">Primary Era Accent <input type="color" id="adminEraPrimaryColor" value="#059669" class="w-7 h-7 border-0 bg-transparent cursor-pointer" /></label>
+                  <label class="flex items-center gap-2">Secondary Era Accent <input type="color" id="adminEraSecondaryColor" value="#D97706" class="w-7 h-7 border-0 bg-transparent cursor-pointer" /></label>
+                </div>
+                <button type="submit" class="px-5 py-2 rounded-xl text-xs font-extrabold era-accent-bg">Save &amp; Activate Era Banner</button>
+              </div>
+            </form>
+            <div id="adminErasGrid" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
+          </div>
+
+          <!-- TAB 4: GLOBAL TRANSLATION UTILITY (9 LANGUAGES) & CONTACT INFO -->
+          <div id="adminTab_settings" class="admin-tab-panel hidden space-y-5">
+            <form onsubmit="fngdgtSaveAdminSettingsAndContact(event)" class="surface-card p-5 border border-emerald-700/20 space-y-4">
+              <h3 class="text-base font-extrabold">Global Language Translation Utility &amp; Newsroom Contact Management</h3>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <div>
+                  <label class="block text-[11px] font-bold uppercase text-slate-600 mb-1">Active Platform Language (9 Languages)</label>
+                  <select id="adminGlobalLangSelect" onchange="fngdgtChangeGlobalLanguage(this.value)" class="w-full px-3 py-2 rounded-lg bg-white border border-emerald-500/50 text-xs font-bold text-emerald-700">
+                    <option value="en">English (Default)</option>
+                    <option value="bn">বাংলা — Bengali</option>
+                    <option value="hi">हिन्दी — Hindi</option>
+                    <option value="fr">Français — French</option>
+                    <option value="es">Español — Spanish</option>
+                    <option value="de">Deutsch — German</option>
+                    <option value="zh">中文 — Chinese</option>
+                    <option value="ja">日本語 — Japanese</option>
+                    <option value="ru">Русский — Russian</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold uppercase text-slate-600 mb-1">Website Title</label>
+                  <input type="text" id="adminSiteTitleInput" class="w-full px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900" />
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold uppercase text-slate-600 mb-1">Website Tagline</label>
+                  <input type="text" id="adminSiteTaglineInput" class="w-full px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900" />
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-[11px] font-bold uppercase text-slate-600 mb-1">Live Symposium Breaking Ribbon Text</label>
+                <input type="text" id="adminBreakingRibbonInput" class="w-full px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900" />
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2 border-t border-emerald-700/20">
+                <div>
+                  <label class="block text-[11px] font-bold uppercase text-slate-600 mb-1">Editorial Email</label>
+                  <input type="text" id="adminContactNewsroom" class="w-full px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900" />
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold uppercase text-slate-600 mb-1">Press &amp; Symposium Email</label>
+                  <input type="text" id="adminContactPress" class="w-full px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900" />
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold uppercase text-slate-600 mb-1">Encrypted Signal / Tip Line</label>
+                  <input type="text" id="adminContactSignal" class="w-full px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900" />
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold uppercase text-slate-600 mb-1">Headquarters Address</label>
+                  <input type="text" id="adminContactHq" class="w-full px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900" />
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold uppercase text-slate-600 mb-1">Symposium Desk Phone</label>
+                  <input type="text" id="adminContactPhone" class="w-full px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900" />
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold uppercase text-slate-600 mb-1">Operating Hours</label>
+                  <input type="text" id="adminContactHours" class="w-full px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900" />
+                </div>
+              </div>
+
+              <div class="flex justify-end">
+                <button type="submit" class="px-6 py-2.5 rounded-xl text-xs font-extrabold era-accent-bg">Save Global Settings &amp; Contact Details</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- TAB 5: PERSISTENT DATABASE AUDIT TRAIL -->
+          <div id="adminTab_audit" class="admin-tab-panel hidden space-y-4">
+            <div class="surface-card p-5 border border-emerald-700/20 overflow-x-auto">
+              <h3 class="text-base font-extrabold mb-1">Persistent Change Log (<span class="text-emerald-700">fngdgt_audit_logs</span> &amp; <span class="text-emerald-700">fngdgt_vw_recent_audit_trail</span>)</h3>
+              <p class="text-xs text-slate-600 mb-4">Every theme switch, language update, post edit, and era customization is recorded and persisted across browser refreshes.</p>
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="border-b border-emerald-600/25 text-[11px] uppercase text-slate-600">
+                    <th class="py-2 pr-2">Time</th>
+                    <th class="py-2 px-2">Actor</th>
+                    <th class="py-2 px-2">Action</th>
+                    <th class="py-2 px-2">Target Object</th>
+                    <th class="py-2 pl-2">Description</th>
+                  </tr>
+                </thead>
+                <tbody id="adminAuditLogTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- TAB 6: ADMIN-ONLY EXTENSIVE DOCUMENTATION & CORS API REFERENCE -->
+          <div id="adminTab_docs" class="admin-tab-panel hidden space-y-5">
+            <div class="surface-card p-6 border border-emerald-700/20 space-y-5 text-xs sm:text-sm leading-relaxed">
+              <div class="border-b border-emerald-700/20 pb-4">
+                <span class="px-2.5 py-1 rounded text-[11px] font-bold bg-amber-500/20 text-amber-800 border border-amber-400/40">ADMIN-ONLY CONFIDENTIAL HANDBOOK</span>
+                <h3 class="text-xl font-extrabold mt-2">Fingadget Administrator &amp; Developer API Reference</h3>
+                <p class="text-slate-600 text-xs mt-1">This documentation is strictly restricted to authenticated administrators and is invisible on the public reader UI.</p>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-4 rounded-xl bg-emerald-50/60 border border-emerald-700/20">
+                  <h4 class="font-bold text-emerald-700 mb-2">1. Netlify &amp; NeonDB Environment Variables</h4>
+                  <ul class="space-y-1.5 text-xs text-slate-700 font-mono">
+                    <li>• <strong>DATABASE_URL</strong>: NeonDB PostgreSQL connection URI (<code class="text-amber-800">postgresql://...neon.tech/neondb?sslmode=require</code>)</li>
+                    <li>• <strong>ADMIN_USERNAME</strong>: Administrator login username</li>
+                    <li>• <strong>ADMIN_PASSWORD</strong>: Administrator login password</li>
+                  </ul>
+                </div>
+                <div class="p-4 rounded-xl bg-emerald-50/60 border border-emerald-700/20">
+                  <h4 class="font-bold text-emerald-700 mb-2">2. Prefix-Isolated NeonDB Schema (<code class="text-amber-800">fngdgt_</code>)</h4>
+                  <p class="text-xs text-slate-700">
+                    All tables (<code class="text-emerald-700">fngdgt_blog_posts</code>, <code class="text-emerald-700">fngdgt_quick_reads</code>, <code class="text-emerald-700">fngdgt_tech_eras</code>, <code class="text-emerald-700">fngdgt_site_settings</code>, <code class="text-emerald-700">fngdgt_contact_details</code>, <code class="text-emerald-700">fngdgt_comments</code>, <code class="text-emerald-700">fngdgt_audit_logs</code>), views (<code class="text-emerald-700">fngdgt_vw_published_feed</code>, <code class="text-emerald-700">fngdgt_vw_era_summary</code>, <code class="text-emerald-700">fngdgt_vw_recent_audit_trail</code>), triggers, and columns use the <code class="text-amber-800">fngdgt_</code> prefix with idempotent cleanup at the top of <code class="text-emerald-700">sql/fngdgt_schema_and_seed.sql</code>.
+                  </p>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-xl bg-emerald-50/60 border border-emerald-700/20 space-y-2">
+                <h4 class="font-bold text-emerald-700">3. Public &amp; Admin CORS REST API Endpoints (<code class="text-amber-800">Access-Control-Allow-Origin: *</code>)</h4>
+                <p class="text-xs text-slate-700">External developers can consume the following endpoints exposed by <code class="text-emerald-700">netlify/functions/api.js</code>:</p>
+                <div class="overflow-x-auto">
+                  <table class="w-full text-left text-xs font-mono border-collapse mt-2">
+                    <thead>
+                      <tr class="border-b border-emerald-600/25 text-slate-600">
+                        <th class="py-1.5 pr-3">Method</th>
+                        <th class="py-1.5 px-3">Endpoint</th>
+                        <th class="py-1.5 pl-3">Description</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-800">
+                      <tr><td class="py-1.5 pr-3 text-emerald-400">GET</td><td class="py-1.5 px-3">/api/bootstrap</td><td class="py-1.5 pl-3 font-sans">Fetch complete site state (posts, quick-reads, eras, settings, contact, logs)</td></tr>
+                      <tr><td class="py-1.5 pr-3 text-emerald-400">GET / POST</td><td class="py-1.5 px-3">/api/posts</td><td class="py-1.5 pl-3 font-sans">List all blog posts or publish a new formatted blog post</td></tr>
+                      <tr><td class="py-1.5 pr-3 text-amber-400">PUT / DELETE</td><td class="py-1.5 px-3">/api/posts/:id</td><td class="py-1.5 pl-3 font-sans">Update or delete an existing blog post by ID</td></tr>
+                      <tr><td class="py-1.5 pr-3 text-emerald-400">GET / POST</td><td class="py-1.5 px-3">/api/quickreads</td><td class="py-1.5 pl-3 font-sans">List or create bite-sized quick-read items</td></tr>
+                      <tr><td class="py-1.5 pr-3 text-amber-400">GET / PUT</td><td class="py-1.5 px-3">/api/eras</td><td class="py-1.5 pl-3 font-sans">List or upsert Tech Era banners and accent palettes</td></tr>
+                      <tr><td class="py-1.5 pr-3 text-amber-400">GET / PUT</td><td class="py-1.5 px-3">/api/settings</td><td class="py-1.5 pl-3 font-sans">Read or update active language (9 languages), active era, or breaking ribbon</td></tr>
+                      <tr><td class="py-1.5 pr-3 text-amber-400">GET / PUT</td><td class="py-1.5 px-3">/api/contact</td><td class="py-1.5 pl-3 font-sans">Read or update newsroom contact details</td></tr>
+                      <tr><td class="py-1.5 pr-3 text-emerald-400">GET</td><td class="py-1.5 px-3">/api/audit</td><td class="py-1.5 pl-3 font-sans">Fetch recent entries from <code class="text-emerald-700">fngdgt_vw_recent_audit_trail</code></td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
