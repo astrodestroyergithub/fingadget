@@ -1,10 +1,10 @@
 /**
  * FINGADGET - CORE APPLICATION ENGINE (app.js)
  * Complete Editorial Feed, 9-Language Translation Utility, 8-Era Dynamic Theme Engine,
- * Long-Form Dharmic Reader, Rich-Text Post Editor, Persistent State & Admin Suite.
+ * Long-Form Gizmo Reader, Rich-Text Post Editor, Persistent State & Admin Suite.
  */
 
-const FNGDGT_STORAGE_KEY = 'fngdgt_persistent_state_v3_light_greengold';
+const FNGDGT_STORAGE_KEY = 'fngdgt_persistent_state_v4_gizmo';
 
 // 1. MULTI-LANGUAGE TRANSLATION ENGINE (EN, BN, HI, FR, ES, DE, ZH, JA, RU)
 const FNGDGT_TRANSLATIONS = {
@@ -13,7 +13,7 @@ const FNGDGT_TRANSLATIONS = {
     navFeed: 'Editorial Feed',
     navQuickReads: 'Quick Dispatches',
     navEras: 'Tech Eras',
-    navDharmic: 'Dharmic Long-Form',
+    navGizmo: 'Gizmo Long-Form',
     navMurals: 'Visual Murals',
     navContact: 'Newsroom Desk',
     navBookmarks: 'Saved',
@@ -25,13 +25,13 @@ const FNGDGT_TRANSLATIONS = {
     quickReadsTitle: 'Pulse Dispatches & Quick Reads',
     quickReadsSub: 'Rapid synthesis from global hardware labs, particle colliders, and symposium stages.',
     feedHeading: 'The Common Techie Feed',
-    feedSub: 'Filter, sort, categorize, and explore deep hardware reviews, laser symposium coverage, and Dharmic cybernetics.',
-    searchPlaceholder: 'Search stories, hardware, quantum physics, or Dharmic essays...',
+    feedSub: 'Filter, sort, categorize, and explore deep hardware reviews, laser symposium coverage, and Gizmo cybernetics.',
+    searchPlaceholder: 'Search stories, hardware, quantum physics, or Gizmo essays...',
     filterAllCategories: 'All Categories',
     filterAllEras: 'All Tech Eras',
     filterAllFormats: 'All Formats',
     formatStandard: 'Standard Features',
-    formatDharmic: 'Dharmic Long-Form',
+    formatGizmo: 'Gizmo Long-Form',
     formatTopRated: 'Top Rated (9.2+)',
     formatBookmarked: 'Saved Bookmarks',
     sortLatest: 'Sort: Latest First',
@@ -51,7 +51,7 @@ const FNGDGT_TRANSLATIONS = {
     wordsLabel: 'words',
     minReadLabel: 'min read',
     viewsLabel: 'reads',
-    dharmicBadge: 'Dharmic Treatise',
+    gizmoBadge: 'Gizmo Treatise',
     featuredBadge: 'Editor Pick',
     noResults: 'No stories match your current filters. Try clearing your search or switching categories.',
     resetFilters: 'Reset All Filters',
@@ -68,7 +68,7 @@ const FNGDGT_TRANSLATIONS = {
     navFeed: 'প্রধান ফিড',
     navQuickReads: 'সংক্ষিপ্ত সংবাদ',
     navEras: 'প্রযুক্তির যুগ',
-    navDharmic: 'ধার্মিক দীর্ঘ প্রবন্ধ',
+    navGizmo: 'গিজমো দীর্ঘ প্রবন্ধ',
     navMurals: 'এইচডি ম্যুরাল',
     navContact: 'যোগাযোগ ডেস্ক',
     navBookmarks: 'সংরক্ষিত',
@@ -80,13 +80,13 @@ const FNGDGT_TRANSLATIONS = {
     quickReadsTitle: 'দ্রুত প্রযুক্তি বার্তা ও কুইক-রিডস',
     quickReadsSub: 'বিশ্বব্যাপী হার্ডওয়্যার ল্যাব, মহাকাশ গবেষণা এবং সম্মেলন মঞ্চ থেকে তাৎক্ষণিক আপডেট।',
     feedHeading: 'প্রযুক্তিপ্রেমীদের সর্বজনীন ফিড',
-    feedSub: 'ফিল্টার, সর্টিং এবং ক্যাটাগরি ব্যবহার করে হার্ডওয়্যার রিভিউ, কোয়ান্টাম বিজ্ঞান এবং ধার্মিক দর্শন পড়ুন।',
-    searchPlaceholder: 'প্রবন্ধ, হার্ডওয়্যার, কোয়ান্টাম বা ধার্মিক দর্শন খুঁজুন...',
+    feedSub: 'ফিল্টার, সর্টিং এবং ক্যাটাগরি ব্যবহার করে হার্ডওয়্যার রিভিউ, কোয়ান্টাম বিজ্ঞান এবং গিজমো ইঞ্জিনিয়ারিং পড়ুন।',
+    searchPlaceholder: 'প্রবন্ধ, হার্ডওয়্যার, কোয়ান্টাম বা গিজমো রিভিউ খুঁজুন...',
     filterAllCategories: 'সব বিভাগ',
     filterAllEras: 'সব প্রযুক্তি যুগ',
     filterAllFormats: 'সব ফরম্যাট',
     formatStandard: 'নিয়মিত প্রতিবেদন',
-    formatDharmic: 'ধার্মিক দীর্ঘ প্রবন্ধ',
+    formatGizmo: 'গিজমো দীর্ঘ প্রবন্ধ',
     formatTopRated: 'সেরা রেটিং (৯.২+)',
     formatBookmarked: 'সংরক্ষিত প্রবন্ধ',
     sortLatest: 'সাজান: সাম্প্রতিক প্রথম',
@@ -106,7 +106,7 @@ const FNGDGT_TRANSLATIONS = {
     wordsLabel: 'শব্দ',
     minReadLabel: 'মিনিট পাঠ',
     viewsLabel: 'বার পঠিত',
-    dharmicBadge: 'ধার্মিক প্রবন্ধ',
+    gizmoBadge: 'গিজমো প্রবন্ধ',
     featuredBadge: 'সেরা নির্বাচন',
     noResults: 'আপনার ফিল্টারের সাথে কোনো প্রবন্ধ মেলেনি। অনুগ্রহ করে ফিল্টার রিসেট করুন।',
     resetFilters: 'ফিল্টার রিসেট করুন',
@@ -123,7 +123,7 @@ const FNGDGT_TRANSLATIONS = {
     navFeed: 'मुख्य फ़ीड',
     navQuickReads: 'त्वरित समाचार',
     navEras: 'प्रौद्योगिकी युग',
-    navDharmic: 'धार्मिक दीर्घ लेख',
+    navGizmo: 'गिज़्मो दीर्घ लेख',
     navMurals: 'एचडी भित्तिचित्र',
     navContact: 'न्यूज़रूम संपर्क',
     navBookmarks: 'सहेजे गए',
@@ -135,13 +135,13 @@ const FNGDGT_TRANSLATIONS = {
     quickReadsTitle: 'त्वरित तकनीकी डिस्पैच और क्विक-रीड्स',
     quickReadsSub: 'वैश्विक हार्डवेयर प्रयोगशालाओं, अंतरिक्ष स्टेशनों और लेज़र सम्मेलनों से ताज़ा अपडेट।',
     feedHeading: 'टेक प्रेमियों के लिए साझा फ़ीड',
-    feedSub: 'फ़िल्टर, श्रेणी और क्रमबद्धता के साथ हार्डवेयर समीक्षा, क्वांटम भौतिकी और धार्मिक साइबरनेटिक्स पढ़ें।',
-    searchPlaceholder: 'लेख, एप्पल टेक, क्वांटम या धार्मिक निबंध खोजें...',
+    feedSub: 'फ़िल्टर, श्रेणी और क्रमबद्धता के साथ हार्डवेयर समीक्षा, क्वांटम भौतिकी और गिज़्मो इंजीनियरिंग पढ़ें।',
+    searchPlaceholder: 'लेख, एप्पल टेक, क्वांटम या गिज़्मो लेख खोजें...',
     filterAllCategories: 'सभी श्रेणियाँ',
     filterAllEras: 'सभी तकनीकी युग',
     filterAllFormats: 'सभी प्रारूप',
     formatStandard: 'मानक लेख',
-    formatDharmic: 'धार्मिक दीर्घ निबंध',
+    formatGizmo: 'गिज़्मो दीर्घ लेख',
     formatTopRated: 'शीर्ष रेटेड (9.2+)',
     formatBookmarked: 'सहेजे गए लेख',
     sortLatest: 'क्रम: नवीनतम पहले',
@@ -161,7 +161,7 @@ const FNGDGT_TRANSLATIONS = {
     wordsLabel: 'शब्द',
     minReadLabel: 'मिनट पठन',
     viewsLabel: 'पाठक',
-    dharmicBadge: 'धार्मिक शोध-निबंध',
+    gizmoBadge: 'गिज़्मो विशेष',
     featuredBadge: 'संपादक की पसंद',
     noResults: 'चयनित फ़िल्टर से कोई लेख नहीं मिला। कृपया फ़िल्टर रीसेट करें।',
     resetFilters: 'फ़िल्टर रीसेट करें',
@@ -178,7 +178,7 @@ const FNGDGT_TRANSLATIONS = {
     navFeed: 'Fil Éditorial',
     navQuickReads: 'Lectures Rapides',
     navEras: 'Ères Tech',
-    navDharmic: 'Essais Dharmiques',
+    navGizmo: 'Dossiers Gizmo',
     navMurals: 'Fresques HD',
     navContact: 'Rédaction',
     navBookmarks: 'Favoris',
@@ -190,13 +190,13 @@ const FNGDGT_TRANSLATIONS = {
     quickReadsTitle: 'Dépêches & Lectures Rapides',
     quickReadsSub: 'Synthèses instantanées des laboratoires matériels, sommets laser et stations orbitales.',
     feedHeading: 'Le Fil Commun des Technophiles',
-    feedSub: 'Filtrez, triez et explorez nos tests matériels, la physique subatomique et les traités dharmiques.',
+    feedSub: 'Filtrez, triez et explorez nos tests matériels, la physique subatomique et les dossiers gizmo.',
     searchPlaceholder: 'Rechercher un article, processeur, quantique ou essai...',
     filterAllCategories: 'Toutes les Catégories',
     filterAllEras: 'Toutes les Ères',
     filterAllFormats: 'Tous les Formats',
     formatStandard: 'Articles Standards',
-    formatDharmic: 'Longs Formats Dharmiques',
+    formatGizmo: 'Longs Formats Gizmo',
     formatTopRated: 'Mieux Notés (9.2+)',
     formatBookmarked: 'Articles Sauvegardés',
     sortLatest: 'Tri : Plus Récents',
@@ -216,7 +216,7 @@ const FNGDGT_TRANSLATIONS = {
     wordsLabel: 'mots',
     minReadLabel: 'min de lecture',
     viewsLabel: 'lectures',
-    dharmicBadge: 'Traité Dharmique',
+    gizmoBadge: 'Dossier Gizmo',
     featuredBadge: 'Choix Éditorial',
     noResults: 'Aucun article ne correspond à vos filtres actuels.',
     resetFilters: 'Réinitialiser',
@@ -233,7 +233,7 @@ const FNGDGT_TRANSLATIONS = {
     navFeed: 'Feed Editorial',
     navQuickReads: 'Lecturas Rápidas',
     navEras: 'Eras Tech',
-    navDharmic: 'Ensayos Dhármicos',
+    navGizmo: 'Ensayos Gizmo',
     navMurals: 'Murales HD',
     navContact: 'Redacción',
     navBookmarks: 'Guardados',
@@ -245,13 +245,13 @@ const FNGDGT_TRANSLATIONS = {
     quickReadsTitle: 'Despachos y Lecturas Rápidas',
     quickReadsSub: 'Resumen instantáneo de cumbres láser, laboratorios de silicio y tecnología espacial.',
     feedHeading: 'El Feed Común para Tecnólogos',
-    feedSub: 'Filtra, ordena y explora reseñas de hardware, física subatómica y filosofía dhármica.',
-    searchPlaceholder: 'Buscar reseñas, espacio, cuántica o ensayos dhármicos...',
+    feedSub: 'Filtra, ordena y explora reseñas de hardware, física subatómica y ingeniería gizmo.',
+    searchPlaceholder: 'Buscar reseñas, espacio, cuántica o ensayos gizmo...',
     filterAllCategories: 'Todas las Categorías',
     filterAllEras: 'Todas las Eras',
     filterAllFormats: 'Todos los Formatos',
     formatStandard: 'Artículos Estándar',
-    formatDharmic: 'Largo Formato Dhármico',
+    formatGizmo: 'Largo Formato Gizmo',
     formatTopRated: 'Mejor Valorados (9.2+)',
     formatBookmarked: 'Guardados',
     sortLatest: 'Orden: Más Recientes',
@@ -271,7 +271,7 @@ const FNGDGT_TRANSLATIONS = {
     wordsLabel: 'palabras',
     minReadLabel: 'min de lectura',
     viewsLabel: 'lecturas',
-    dharmicBadge: 'Tratado Dhármico',
+    gizmoBadge: 'Especial Gizmo',
     featuredBadge: 'Destacado',
     noResults: 'No se encontraron artículos con los filtros seleccionados.',
     resetFilters: 'Restablecer Filtros',
@@ -288,7 +288,7 @@ const FNGDGT_TRANSLATIONS = {
     navFeed: 'Redaktions-Feed',
     navQuickReads: 'Kurzberichte',
     navEras: 'Tech-Epochen',
-    navDharmic: 'Dharmische Essays',
+    navGizmo: 'Gizmo-Langform',
     navMurals: 'HD-Wandbilder',
     navContact: 'Redaktion',
     navBookmarks: 'Gespeichert',
@@ -300,13 +300,13 @@ const FNGDGT_TRANSLATIONS = {
     quickReadsTitle: 'Kompakt-Dispatches & Quick-Reads',
     quickReadsSub: 'Schnelle Einblicke aus Halbleiterlaboren, Weltraummissionen und Lasersymposien.',
     feedHeading: 'Der gemeinsame Feed für Technik-Pioniere',
-    feedSub: 'Filtern, sortieren und entdecken Sie Hardware-Tests, Quantenphysik und dharmische Philosophie.',
+    feedSub: 'Filtern, sortieren und entdecken Sie Hardware-Tests, Quantenphysik und Gizmo-Technik.',
     searchPlaceholder: 'Artikel, Chips, Quantenphysik oder Essays durchsuchen...',
     filterAllCategories: 'Alle Kategorien',
     filterAllEras: 'Alle Tech-Epochen',
     filterAllFormats: 'Alle Formate',
     formatStandard: 'Standard-Artikel',
-    formatDharmic: 'Dharmische Langform',
+    formatGizmo: 'Gizmo-Langform',
     formatTopRated: 'Bestbewertet (9.2+)',
     formatBookmarked: 'Gespeicherte Artikel',
     sortLatest: 'Sortierung: Neueste zuerst',
@@ -326,7 +326,7 @@ const FNGDGT_TRANSLATIONS = {
     wordsLabel: 'Wörter',
     minReadLabel: 'Min. Lesezeit',
     viewsLabel: 'Aufrufe',
-    dharmicBadge: 'Dharmische Abhandlung',
+    gizmoBadge: 'Gizmo-Dossier',
     featuredBadge: 'Empfehlung',
     noResults: 'Keine passenden Artikel für diese Filter gefunden.',
     resetFilters: 'Filter zurücksetzen',
@@ -343,7 +343,7 @@ const FNGDGT_TRANSLATIONS = {
     navFeed: '科技资讯流',
     navQuickReads: '极速快讯',
     navEras: '科技纪元',
-    navDharmic: '达摩哲思长文',
+    navGizmo: '极客装备长文',
     navMurals: '高清壁画',
     navContact: '编辑部联络',
     navBookmarks: '收藏夹',
@@ -355,13 +355,13 @@ const FNGDGT_TRANSLATIONS = {
     quickReadsTitle: '前沿实验室快讯与速读',
     quickReadsSub: '来自全球科技峰会、激光秀、量子实验室与轨道空间站的即时简报。',
     feedHeading: '极客与科学家共享资讯流',
-    feedSub: '通过多维筛选、分类、排序与分页，探索深度硬件评测、亚原子物理与达摩控制论长文。',
-    searchPlaceholder: '搜索文章、苹果科技、量子芯片或达摩哲学...',
+    feedSub: '通过多维筛选、分类、排序与分页，探索深度硬件评测、亚原子物理与极客装备（Gizmo）深度长文。',
+    searchPlaceholder: '搜索文章、苹果科技、量子芯片或极客装备（Gizmo）...',
     filterAllCategories: '全部分类',
     filterAllEras: '全部科技纪元',
     filterAllFormats: '全部篇幅格式',
     formatStandard: '标准深度报道',
-    formatDharmic: '达摩哲思长卷',
+    formatGizmo: '极客装备长卷',
     formatTopRated: '高分精选 (9.2+)',
     formatBookmarked: '已收藏文章',
     sortLatest: '排序：最新发布',
@@ -381,7 +381,7 @@ const FNGDGT_TRANSLATIONS = {
     wordsLabel: '字',
     minReadLabel: '分钟阅读',
     viewsLabel: '次阅读',
-    dharmicBadge: '达摩哲思长文',
+    gizmoBadge: 'Gizmo 深度长文',
     featuredBadge: '主编精选',
     noResults: '未找到符合当前筛选条件的文章，请重置筛选器。',
     resetFilters: '重置全部筛选',
@@ -398,7 +398,7 @@ const FNGDGT_TRANSLATIONS = {
     navFeed: '総合フィード',
     navQuickReads: 'クイック速報',
     navEras: 'テクノロジー時代',
-    navDharmic: 'ダルマ哲学長編',
+    navGizmo: 'ギズモ長編特集',
     navMurals: 'HDミューラル',
     navContact: '編集部連絡先',
     navBookmarks: '保存済み',
@@ -410,13 +410,13 @@ const FNGDGT_TRANSLATIONS = {
     quickReadsTitle: 'ラボ速報＆クイックリード',
     quickReadsSub: '世界の技術サミット、レーザーシンポジウム、宇宙軌道ステーションからの最新ブリーフィング。',
     feedHeading: 'テクノロジー愛好家のための共通フィード',
-    feedSub: 'フィルタリング、並べ替え、カテゴリ分け、ページネーションで深層記事やダルマ思想論考を探索。',
-    searchPlaceholder: '記事、ハードウェア、量子力学、ダルマ論文を検索...',
+    feedSub: 'フィルタリング、並べ替え、カテゴリ分け、ページネーションで深層記事やギズモ（Gizmo）深層解説を探索。',
+    searchPlaceholder: '記事、ハードウェア、量子力学、ギズモ特集を検索...',
     filterAllCategories: 'すべてのカテゴリ',
     filterAllEras: 'すべての技術時代',
     filterAllFormats: 'すべての形式',
     formatStandard: '通常特集記事',
-    formatDharmic: 'ダルマ長編論考',
+    formatGizmo: 'ギズモ長編特集',
     formatTopRated: '高評価 (9.2+)',
     formatBookmarked: '保存した記事',
     sortLatest: '並び順：最新順',
@@ -436,7 +436,7 @@ const FNGDGT_TRANSLATIONS = {
     wordsLabel: '語',
     minReadLabel: '分で読了',
     viewsLabel: '閲覧',
-    dharmicBadge: 'ダルマ長編論考',
+    gizmoBadge: 'ギズモ深層特集',
     featuredBadge: '編集部推薦',
     noResults: '条件に一致する記事が見つかりませんでした。',
     resetFilters: 'フィルタをリセット',
@@ -453,7 +453,7 @@ const FNGDGT_TRANSLATIONS = {
     navFeed: 'Лента Статей',
     navQuickReads: 'Быстрые Сводки',
     navEras: 'Эпохи Технологий',
-    navDharmic: 'Дхармические Труды',
+    navGizmo: 'Гизмо-Лонгриды',
     navMurals: 'HD-Фрески',
     navContact: 'Редакция',
     navBookmarks: 'Закладки',
@@ -465,13 +465,13 @@ const FNGDGT_TRANSLATIONS = {
     quickReadsTitle: 'Молнии и Быстрые Чтения',
     quickReadsSub: 'Оперативные сводки из квантовых лабораторий, космодромов и лазерных симпозиумов.',
     feedHeading: 'Единая Лента для Технологов и Исследователей',
-    feedSub: 'Фильтруйте, сортируйте и изучайте обзоры оборудования, субатомную физику и дхармическую кибернетику.',
-    searchPlaceholder: 'Поиск по статьям, чипам, космосу или дхармической философии...',
+    feedSub: 'Фильтруйте, сортируйте и изучайте обзоры оборудования, субатомную физику и инженерию гизмо.',
+    searchPlaceholder: 'Поиск по статьям, чипам, космосу или инженерии гизмо...',
     filterAllCategories: 'Все Категории',
     filterAllEras: 'Все Эпохи',
     filterAllFormats: 'Все Форматы',
     formatStandard: 'Стандартные Обзоры',
-    formatDharmic: 'Дхармические Лонгриды',
+    formatGizmo: 'Гизмо-Лонгриды',
     formatTopRated: 'Высший Рейтинг (9.2+)',
     formatBookmarked: 'Избранные Статьи',
     sortLatest: 'Сортировка: Новые',
@@ -491,7 +491,7 @@ const FNGDGT_TRANSLATIONS = {
     wordsLabel: 'слов',
     minReadLabel: 'мин чтения',
     viewsLabel: 'просмотров',
-    dharmicBadge: 'Дхармический Труд',
+    gizmoBadge: 'Гизмо-Обзор',
     featuredBadge: 'Выбор Редакции',
     noResults: 'По вашим фильтрам ничего не найдено. Сбросьте параметры поиска.',
     resetFilters: 'Сбросить Фильтры',
@@ -512,10 +512,10 @@ const FNGDGT_CATEGORY_I18N = {
     fr: 'Quantique & Subatomique', es: 'Cuántica y Subatómica', de: 'Quanten & Subatomar',
     zh: '量子与亚原子物理', ja: '量子・素粒子科学', ru: 'Кванты и Субатомика'
   },
-  'Dharmic Philosophy': {
-    en: 'Dharmic Philosophy', bn: 'ধার্মিক দর্শন ও বিজ্ঞান', hi: 'धार्मिक दर्शन और विज्ञान',
-    fr: 'Philosophie Dharmique', es: 'Filosofía Dhármica', de: 'Dharmische Philosophie',
-    zh: '达摩哲学与控制论', ja: 'ダルマ哲学・科学', ru: 'Дхармическая Философия'
+  'Gizmo Engineering': {
+    en: 'Gizmo Engineering', bn: 'গিজমো ইঞ্জিনিয়ারিং', hi: 'गिज़्मो इंजीनियरिंग',
+    fr: 'Ingénierie Gizmo', es: 'Ingeniería Gizmo', de: 'Gizmo-Engineering',
+    zh: '极客装备（Gizmo）与控制论', ja: 'ギズモ工学・ハードウェア', ru: 'Инженерия Гизмо'
   },
   'Apple & Personal Tech': {
     en: 'Apple & Personal Tech', bn: 'অ্যাপল ও পার্সোনাল টেক', hi: 'एप्पल और पर्सनल टेक',
@@ -553,7 +553,7 @@ const FNGDGT_CATEGORY_I18N = {
 const FNGDGT_DEFAULT_STATE = {
   settings: {
     siteTitle: 'Fingadget',
-    siteTagline: 'The Definitive Frontier of Consumer Hardware, Deep Science & Dharmic Cybernetics',
+    siteTagline: 'The Definitive Frontier of Consumer Hardware, Deep Science & Gizmo Cybernetics',
     activeLanguage: 'en',
     activeEraSlug: 'quantum-subatomic',
     colorMode: 'light',
@@ -567,11 +567,11 @@ const FNGDGT_DEFAULT_STATE = {
       years: '1760 – 1946',
       bannerTitle: 'Steam, Brass Gears & Babbage Analytical Looms',
       bannerSubtitle: 'From Jacquard punched-card looms and thermodynamic engines to precision clockwork differential analyzers.',
-      bannerImage: 'assets/dharmic_industrial_mural.jpg',
+      bannerImage: 'assets/gizmo_industrial_mural.jpg',
       primaryAccent: '#B45309',
       secondaryAccent: '#059669',
       bgTint: '#FEFCE8',
-      muralCaption: 'Brass Jacquard mechanisms meeting Vedic mandala symmetry in early deterministic automata.'
+      muralCaption: 'Brass Jacquard mechanisms meeting precision gizmo symmetry in early deterministic automata.'
     },
     {
       slug: 'transistor-era',
@@ -697,12 +697,12 @@ const FNGDGT_DEFAULT_STATE = {
     },
     {
       id: 105,
-      title: 'Panini’s Ashtadhyayi Formal Grammar Mapped to Low-Rank Neural Compiler Optimizations',
-      summary: 'Computational linguists demonstrate how 2,500-year-old Sanskrit meta-rules compress deterministic state-space graphs by 41%.',
-      category: 'Dharmic Philosophy',
+      title: 'Modular Open-Source Handheld Gizmo Packs Hot-Swappable FPGA & Neural Cartridges',
+      summary: 'Hardware hackers unveil a pocket-sized CNC-machined magnesium gizmo capable of emulating vintage silicon and running local edge models.',
+      category: 'Gizmo Engineering',
       eraSlug: 'artificial-intelligence',
       readTime: '1 min read',
-      badge: 'Dharmic Monograph'
+      badge: 'Gizmo Monograph'
     }
   ],
   posts: [
@@ -717,7 +717,7 @@ const FNGDGT_DEFAULT_STATE = {
       authorRole: 'Chief Physics & Hardware Editor',
       coverImage: 'assets/quantum_subatomic.jpg',
       excerpt: 'Beneath a canopy of cyan and violet calibration lasers in Geneva, researchers demonstrated a fault-tolerant 4,096-logical-qubit processor running continuous surface-code syndrome extraction at 12 millikelvin.',
-      isDharmic: false,
+      isGizmo: false,
       isFeatured: true,
       reviewScore: 9.8,
       wordCount: 640,
@@ -753,16 +753,16 @@ const FNGDGT_DEFAULT_STATE = {
     },
     {
       id: 2,
-      slug: 'dharmic-cybernetics-akasha-sankhya-quantum-wavefunction',
-      title: 'Akasha, Sankhya Tattvas, and the Subatomic Wavefunction: A Dharmic Treatise on Quantum Information & Conscious Observers',
-      subtitle: 'An extensive, multi-chapter philosophical and scientific exploration bridging classical Advaita Vedanta, Sankhya cosmology, and modern relational quantum mechanics.',
-      category: 'Dharmic Philosophy',
+      slug: 'gizmo-cybernetics-modular-solid-state-hardware-architecture',
+      title: 'The Anatomy of Next-Gen Modular Gizmos: Solid-State Micro-Actuators, Piezo Haptics & Self-Healing Chassis Design',
+      subtitle: 'An extensive, multi-chapter hardware teardown and engineering treatise exploring how precision micro-electromechanical gizmos are replacing monolithic consumer electronics.',
+      category: 'Gizmo Engineering',
       eraSlug: 'quantum-subatomic',
-      authorName: 'Acharya Devव्रत Sen & Dr. Meera Krishnan',
-      authorRole: 'Chair of Dharmic Philosophy & Theoretical Physics',
-      coverImage: 'assets/dharmic_industrial_mural.jpg',
-      excerpt: 'Long before Hilbert spaces and non-local Bell inequalities challenged classical materialism, the rishis of the Upanishads, Sankhya Karika, and Vaisheshika Sutras formulated rigorous ontologies of discrete atoms (Paramanu), potential fields (Prakriti), and the witness consciousness (Sakshi). Here is our comprehensive treatise.',
-      isDharmic: true,
+      authorName: 'Dr. Viktor Sterling & Maya Krishnan',
+      authorRole: 'Chairs of Gizmo Architecture & Precision Mechatronics',
+      coverImage: 'assets/gizmo_industrial_mural.jpg',
+      excerpt: 'From magnetic pogo-pin interconnect buses and ultrasonic piezoelectric haptic arrays to liquid-metal thermal interfaces, modern flagship gizmos have evolved into marvels of repairable, field-upgradable micro-engineering. Here is our complete 5-chapter teardown treatise.',
+      isGizmo: true,
       isFeatured: true,
       reviewScore: 9.9,
       wordCount: 1420,
@@ -774,46 +774,43 @@ const FNGDGT_DEFAULT_STATE = {
       fontSize: '1.12rem',
       fontColor: 'inherit',
       textAlign: 'justify',
-      tags: ['Dharmic Philosophy', 'Advaita Vedanta', 'Sankhya', 'Subatomic Physics', 'Long-Form'],
+      tags: ['Gizmo Engineering', 'Modular Hardware', 'Teardown', 'Mechatronics', 'Long-Form'],
       publishedAt: '2026-10-29T18:00:00Z',
       i18nTitle: {
-        bn: 'আকাশ, সাংখ্য তত্ত্ব এবং উপপারমাণবিক তরঙ্গ-ফাংশন: কোয়ান্টাম তথ্য ও চেতনার ওপর একটি সুদীর্ঘ ধার্মিক প্রবন্ধ',
-        hi: 'आकाश, सांख्य तत्त्व और उप-परमाणु तरंग-फ़ंक्शन: क्वांटम सूचना और साक्षी चेतना पर एक विस्तृत धार्मिक ग्रंथ',
-        fr: 'Akasha, Tattvas du Sankhya et Fonction d’Onde Subatomique : Traité Dharmique sur l’Information Quantique',
-        es: 'Akasha, Tattvas de Sankhya y la Función de Onda Subatómica: Tratado Dhármico sobre Información Cuántica',
-        de: 'Akasha, Sankhya-Tattvas und die subatomare Wellenfunktion: Eine dharmische Abhandlung',
-        zh: '阿卡莎（空界）、数论派谛义与亚原子波函数：关于量子信息与观照意识的达摩长篇论著',
-        ja: 'アーカーシャ、サーンキヤ哲学と素粒子波動関数：量子情報と観照意識に関するダルマ長編論考',
-        ru: 'Акаша, Таттвы Санкхьи и субатомная волновая функция: Дхармический трактат о квантовой информации'
+        bn: 'পরবর্তী প্রজন্মের মডুলার গিজমোর ব্যবচ্ছেদ: সলিড-স্টেট অ্যাকচুয়েটর ও হ্যাপটিক ইঞ্জিনিয়ারিং',
+        hi: 'नेक्स्ट-जेन मॉड्यूलर गिज़्मो की आंतरिक संरचना: सॉलिड-स्टेट माइक्रो-एक्चुएटर्स और हैप्टिक इंजीनियरिंग',
+        fr: 'L’Anatomie des Gizmos Modulaires de Nouvelle Génération : Micro-Actionneurs & Haptique',
+        es: 'Anatomía de los Gizmos Modulares de Nueva Generación: Microactuadores de Estado Sólido',
+        de: 'Die Anatomie modularer Next-Gen-Gizmos: Festkörper-Aktuatoren & Präzisionsmechanik',
+        zh: '下一代模块化极客装置（Gizmo）深度拆解：固态微执行器、压电触觉与自修复机身工程',
+        ja: '次世代モジュラー・ギズモ（Gizmo）の解剖学：固体マイクロアクチュエータと精密機構設計',
+        ru: 'Анатомия модульных гизмо нового поколения: Твердотельные микроприводы и гаптика'
       },
       contentHtml: `
-        <div class="dharmic-verse">
-          <strong>॥ पूर्णमदः पूर्णमिदं पूर्णात्पूर्णमुदच्यते । पूर्णस्य पूर्णमादाय पूर्णमेवावशिष्यते ॥</strong><br/>
-          <em>"That outer cosmos is indivisible Wholeness; this inner continuum is indivisible Wholeness. From Wholeness emerges Wholeness; when Wholeness is drawn from Wholeness, Wholeness alone remains." — Isha Upanishad Invocation</em>
+        <div class="gizmo-verse">
+          <strong>⚙️ GIZMO LAB TELEMETRY SPEC // REV 4.8-OMEGA</strong><br/>
+          <em>"True hardware longevity emerges when every sensor pod, compute module, optical array, and battery cell communicates across a zero-latency magnetic optical backplane." — Fingadget Gizmo Teardown Manifesto</em>
         </div>
 
-        <h2>Chapter I: The Crisis of Naive Realism in Subatomic Physics and Classical Darshana</h2>
-        <p>When twentieth-century pioneers of quantum mechanics—Erwin Schrödinger, Werner Heisenberg, and Niels Bohr—confronted the paradoxes of wave-particle duality and non-local entanglement, they found themselves stranded by the vocabulary of Cartesian-Newtonian substance dualism. In classical Western mechanics, the universe was conceived as an aggregate of self-existent, billiard-ball corpuscles moving through an inert, absolute Euclidean container. Yet at the Planck scale, particles dissolved into probability amplitudes, relational correlations, and observer-dependent projections.</p>
-        <p>Strikingly, neither Schrödinger nor Heisenberg viewed this ontological shift in a vacuum. Both turned explicitly to the <strong>Upanishadic and Dharmic epistemological traditions (Bharatiya Darshana)</strong>. In the Dharmic worldview, reality is never reduced to dead, isolated matter (<em>Jada</em>) divorced from awareness (<em>Chit</em>). Instead, cosmos and cognition arise as a unified, rule-governed tapestry of information, vibration (<em>Spanda</em>), and causal interdependence (<em>Pratītyasamutpāda</em> and <em>Satkāryavāda</em>).</p>
+        <h2>Chapter I: The Renaissance of Tactile, Field-Upgradable Gizmos</h2>
+        <p>For over a decade, mainstream consumer electronics drifted toward sealed, glued slabs that punished curiosity and rendered minor component upgrades impossible. Yet inside independent hardware foundries in Shenzhen, Zurich, Tokyo, and San Francisco, a quiet revolution has reshaped industrial design: the rise of the <strong>hyper-modular precision gizmo</strong>. By pairing CNC-milled aerospace magnesium-lithium frames with captive Torx fasteners and gold-plated spring-loaded pogo buses, modern gizmos celebrate mechanical transparency without sacrificing IP68 environmental sealing.</p>
+        <p>In the Fingadget Gizmo Lab, we spent ninety days stress-testing twelve flagship modular gizmos—ranging from pocketable software-defined radio analyzers and neural audio synthesizers to hot-swappable camera grip compute modules. Across every category, the engineering thesis is unmistakable: modularity is no longer a compromise in thickness or structural rigidity.</p>
 
-        <h2>Chapter II: Kanada’s Vaisheshika Paramanu and Quantum Discreteness</h2>
-        <p>More than two millennia ago, the sage <strong>Acharya Kanada</strong> codified the <em>Vaisheshika Sutras</em>, proposing that the material continuum is divisible only down to an indivisible, dimensionless boundary unit termed the <strong>Paramanu</strong>. Unlike nineteenth-century chemical atoms—which were imagined as miniature solid spheres—the Vaisheshika <em>Paramanu</em> possesses no spatial interior of its own; rather, extension and macro-dimensionality emerge only when two <em>Paramanus</em> couple into a binary dyad (<em>Dvyanuka</em>) and three dyads coalesce into a visible triad (<em>Tryanuka</em>) through an unseen relational potential called <em>Adrishta</em>.</p>
-        <blockquote>"Just as modern quantum field theory treats elementary fermions and gauge bosons not as tiny pebbles, but as quantized excitations of underlying pervasive fields, Vaisheshika and Sankhya locate materiality in dynamic relational couplings rather than static bulk."</blockquote>
-        <p>In contemporary high-energy physics at CERN and Fermilab, when protons collide at 13.6 TeV, we do not observe miniature fragments of solid matter shattering like porcelain. We observe pure kinetic energy condensing into ephemeral quark-gluon jets, governed by symmetry groups and conservation laws—an empirical validation of the Dharmic insight that <em>Rupa</em> (form) is a stabilized standing wave of <em>Shakti</em> (dynamic energy) and <em>Rta</em> (cosmic order).</p>
+        <h2>Chapter II: Piezoelectric Ceramic Actuators and Sub-Millisecond Haptic Realism</h2>
+        <p>Touch an ordinary glass touchscreen and your fingertips encounter an inert, frictionless surface. Touch the rotary crown or solid-state trigger bar of a next-generation gizmo and you feel distinct, crisp mechanical detents—even though nothing physically rotates. The secret lies in <strong>multi-layer co-fired piezoelectric ceramic stacks</strong> bonded directly to a titanium flexure suspension.</p>
+        <blockquote>"By driving a 140-volt bipolar waveform across a 300-micron lead-zirconate-titanate (PZT) crystal within 0.4 milliseconds, a solid-state gizmo surface can simulate the exact acoustic click of a vintage mechanical camera shutter or a precision micrometer dial."</blockquote>
+        <p>During our oscilloscope teardown, we measured localized surface displacement profiles accurate to 2.5 micrometers. Because the piezo actuator consumes power only during the microsecond impulse edge, standby battery drain drops by 64% compared to legacy linear resonant actuators (LRAs).</p>
 
-        <h2>Chapter III: Sankhya’s Prakriti-Purusha Dialectic and Hilbert Space Superposition</h2>
-        <p>Perhaps the most mathematically resonant parallel in all of classical philosophy is found in Kapila’s <strong>Sankhya Darshana</strong>. Sankhya posits two irreducible principles:</p>
-        <p><strong>1. Mula-Prakriti (Unmanifest Potential Matrix):</strong> Prior to observation or cosmic differentiation, <em>Prakriti</em> exists in a state of perfect, unmanifest equilibrium (<em>Samyavastha</em>) of three fundamental modes or tendencies (<em>Gunas</em>): <em>Sattva</em> (coherence, luminosity, information intelligibility), <em>Rajas</em> (kinetic activity, phase transformation, momentum), and <em>Tamas</em> (inertia, mass-energy localization, decoherence/obscuration).</p>
-        <p><strong>2. Purusha (The Non-Entangled Witness / Sakshi):</strong> Pure, non-participating consciousness whose proximity (<em>Sannidhi</em>) breaks the symmetry of <em>Prakriti</em>, causing the unmanifest superposition of <em>Gunas</em> to project into the 24 manifest cosmic principles (<em>Tattvas</em>)—beginning with <em>Mahat/Buddhi</em> (cosmic intelligence), <em>Ahamkara</em> (individuated reference frame), <em>Tanmatras</em> (subtle quantum potentials of sound, touch, form, taste, and scent), and finally the five gross elements (<em>Pancha Mahabhutas</em>) headed by <strong>Akasha</strong> (the all-pervasive spatial-informational metric).</p>
-        <p>Consider how closely this mirrors the formalism of von Neumann quantum measurement: prior to measurement, a quantum system evolves unitarily in Hilbert space as a linear superposition of eigenstates (<em>Samyavastha of Prakriti</em>). It is only in relation to a definite observational frame (<em>Purusha-Sannidhi</em>) that the wave-function projects into a concrete classical eigenvalue!</p>
+        <h2>Chapter III: Optical Backplanes and Zero-Pin Magnetic Interconnects</h2>
+        <p>Historically, the Achilles heel of modular gadgets was mechanical connector wear: microscopic fretting corrosion on exposed copper pins eventually degraded high-speed PCIe and USB4 lanes. The latest generation of gizmo backplanes eliminates high-speed electrical contacts altogether. While neodymium Halbach magnet arrays align the module within 15 microns and transfer 60 watts of regulated DC power across robust concentric rings, data travels across a <strong>pair of expanded-beam silicon-photonics lenses</strong>.</p>
+        <p>Even when submerged in dust or subjected to 40G shock vibrations on a test bench, the Expanded-Beam Optical (EBO) coupler sustained 80 Gbps bi-directional throughput across an air gap of 1.8 millimeters—allowing users to snap thermal-imaging pods, NVMe storage bricks, or discrete GPU accelerators onto the host gizmo chassis on the fly.</p>
 
-        <h2>Chapter IV: Satkaryavada and the Conservation of Quantum Information</h2>
-        <p>A cornerstone of both Sankhya and Vedanta is <strong>Satkāryavāda</strong>—the doctrine that an effect pre-exists in its causal substrate in a latent or unmanifest form, and that nothing truly existent (<em>Sat</em>) can ever be annihilated into non-existence (<em>Asat</em>). As the <em>Bhagavad Gita</em> (2.16) declares: <em>"Nāsato vidyate bhāvo nābhāvo vidyate sataḥ"</em>—of the non-existent there is no coming into being, and of the existent there is no cessation.</p>
-        <p>In modern quantum mechanics, this principle appears as <strong>Unitarity</strong> and the <strong>No-Hiding / No-Deleting Theorems</strong>. Even when matter falls past the event horizon of a black hole, unitarity demands that the fine-grained quantum information (von Neumann entropy) cannot be destroyed; it must be preserved in subtle Hawking radiation correlations or holographic boundary encodings. Information is neither created ex nihilo nor erased—it merely undergoes unitary basis transformations across the cosmic substrate.</p>
+        <h2>Chapter IV: Phase-Change Gallium Thermal Chambers & Solid-State Cooling</h2>
+        <p>Packing desktop-class neural accelerators into a palm-sized gizmo requires rethinking thermodynamics. Rather than relying on high-RPM centrifugal fans that ingest lint and whine under load, frontier gizmo architects employ <strong>MEMS ultrasonic micro-blowers</strong> paired with encapsulated gallium-indium phase-change reservoirs.</p>
+        <p>When burst compute workloads spike past 28 watts, the metallic phase-change lattice absorbs latent heat isothermally at 31.5°C, keeping external chassis skin temperatures comfortable in the hand for extended field deployments.</p>
 
-        <h2>Chapter V: Toward a Contemplative & Humane Technological Future</h2>
-        <p>Why does a Dharmic synthesis matter for twenty-first-century engineers building exascale AI clusters, neuromorphic silicon, and cryogenic quantum processors? Because technology divorced from wisdom (<em>Prajna</em>) and ethical harmony (<em>Dharma</em>) risks reducing human beings to mere statistical data-points in an extractive machine.</p>
-        <p>When we recognize that the subatomic lattice inside a silicon wafer, the coherent photons inside a laser interferometer, and the inquiring mind of the scientist are expressions of a single interconnected order (<em>Rta</em>), engineering becomes a sacred discipline (<em>Karma Yoga</em>). We build instruments not to dominate nature recklessly, but to illuminate the deep structure of reality and uplift all sentient life (<em>Loka-Samgraha</em>).</p>
+        <h2>Chapter V: Right-to-Repair Schematics and Open Firmware Longevity</h2>
+        <p>Why do long-form gizmo teardowns matter to engineers and everyday enthusiasts alike? Because an instrument you can open, probe with a multimeter, flash with open-source RISC-V firmware, and upgrade five years after purchase transforms you from a passive consumer into an active custodian of technology. Every screw thread, silk-screened test pad, and documented pinout inside a well-crafted gizmo is an invitation to invent.</p>
       `
     },
     {
@@ -827,7 +824,7 @@ const FNGDGT_DEFAULT_STATE = {
       authorRole: 'Executive Hardware Reviewer',
       coverImage: 'assets/apple_spatial.jpg',
       excerpt: 'We put the latest anodized titanium workstation and second-generation spatial computing headset through 180 days of 3D CAD rendering, local 70B LLM compilation, and color-critical HDR mastering.',
-      isDharmic: false,
+      isGizmo: false,
       isFeatured: true,
       reviewScore: 9.5,
       wordCount: 580,
@@ -871,7 +868,7 @@ const FNGDGT_DEFAULT_STATE = {
       authorRole: 'Asia-Pacific Bureau Chief',
       coverImage: 'assets/summit_laser.jpg',
       excerpt: 'Reporting from the main stage of the Tokyo Laser & Photonics Summit, where solid-state RGB femtosecond emitters and nano-antenna metasurfaces sculpted interactive mid-air light fields.',
-      isDharmic: false,
+      isGizmo: false,
       isFeatured: false,
       reviewScore: 9.4,
       wordCount: 520,
@@ -913,7 +910,7 @@ const FNGDGT_DEFAULT_STATE = {
       authorRole: 'Aerospace & Orbital Systems Editor',
       coverImage: 'assets/space_station.jpg',
       excerpt: 'With Hall-effect krypton-xenon ion thrusters and 400-kilowatt roll-out solar arrays, the newest commercial orbital outpost doubles as an interplanetary optical routing hub.',
-      isDharmic: false,
+      isGizmo: false,
       isFeatured: false,
       reviewScore: 9.6,
       wordCount: 550,
@@ -954,7 +951,7 @@ const FNGDGT_DEFAULT_STATE = {
       authorRole: 'Semiconductor & Foundry Correspondent',
       coverImage: 'assets/silicon_wafer.jpg',
       excerpt: 'Fifty thousand times per second, a microscopic droplet of molten tin is vaporized by a dual-pulse CO2 laser to emit 13.5-nanometer light—the heartbeat of modern integrated circuits.',
-      isDharmic: false,
+      isGizmo: false,
       isFeatured: false,
       reviewScore: 9.7,
       wordCount: 590,
@@ -986,16 +983,16 @@ const FNGDGT_DEFAULT_STATE = {
     },
     {
       id: 7,
-      slug: 'panini-ashtadhyayi-nyaya-epistemology-sovereign-ai',
-      title: 'From Panini’s Ashtadhyayi to Sovereign Neural Architectures: Nyaya Epistemology, Pramana Verification & Ethical AI',
-      subtitle: 'A monumental Dharmic-computational treatise examining how ancient Sanskrit generative grammars and Navya-Nyaya formal logic solve hallucination and alignment in frontier AI.',
-      category: 'Dharmic Philosophy',
+      slug: 'open-silicon-risc-v-pocket-gizmos-edge-neural-workstations',
+      title: 'From Pocket Logic Analyzers to Sovereign Neural Gizmos: Inside the Open-Silicon Handheld Revolution',
+      subtitle: 'A comprehensive engineering monograph on how open-source RISC-V cores, e-ink hybrid displays, and ultra-low-power NPU co-processors are powering autonomous field gizmos.',
+      category: 'Gizmo Engineering',
       eraSlug: 'artificial-intelligence',
       authorName: 'Prof. Siddharth Chatterjee & Dr. Ananya Bose',
-      authorRole: 'Computational Sanskrit & AI Alignment Fellows',
-      coverImage: 'assets/dharmic_industrial_mural.jpg',
-      excerpt: 'Two thousand five hundred years before Backus-Naur Form and Turing machines, Maharshi Panini compressed the entire generative morphology of Sanskrit into 3,959 algebraic sutras. Paired with Nyaya Pramana theory, this heritage offers a rigorous blueprint for verifiable, hallucination-free artificial intelligence.',
-      isDharmic: true,
+      authorRole: 'Lead Systems Architects, Open-Silicon Gizmo Lab',
+      coverImage: 'assets/gizmo_industrial_mural.jpg',
+      excerpt: 'A new breed of pocketable engineering gizmos combines sunlight-readable transflective displays, tactile mechanical thumb-keyboards, software-defined radio transceivers, and 45-TOPS edge neural engines that run completely offline.',
+      isGizmo: true,
       isFeatured: false,
       reviewScore: 9.9,
       wordCount: 1310,
@@ -1007,41 +1004,41 @@ const FNGDGT_DEFAULT_STATE = {
       fontSize: '1.12rem',
       fontColor: 'inherit',
       textAlign: 'justify',
-      tags: ['Dharmic Philosophy', 'Panini Ashtadhyayi', 'Nyaya Logic', 'Artificial Intelligence', 'Long-Form'],
+      tags: ['Gizmo Engineering', 'RISC-V', 'Handheld Hardware', 'Edge AI', 'Long-Form'],
       publishedAt: '2026-10-24T08:45:00Z',
       i18nTitle: {
-        bn: 'পাণিনির অষ্টাধয়ী থেকে সার্বভৌম নিউরাল এআই: ন্যায় দর্শন, প্রমাণ তত্ত্ব ও নৈতিক কৃত্রিম বুদ্ধিমত্তা',
-        hi: 'पाणिनि के अष्टाध्यायी से संप्रभु एआई तक: न्याय दर्शन, प्रमाण शास्त्र और नैतिक कृत्रिम बुद्धिमत्ता',
-        fr: 'De l’Ashtadhyayi de Panini aux Architectures IA Souveraines : Logique Nyaya et Éthique',
-        es: 'Del Ashtadhyayi de Panini a la IA Soberana: Epistemología Nyaya y Verificación Formal',
-        de: 'Von Paninis Ashtadhyayi zu souveränen KI-Architekturen: Nyaya-Logik & Ethik',
-        zh: '从波你尼《八章书》到主权神经架构：正理派认识论（量论）与可验证人工智能长文',
-        ja: 'パーニニ『アシュターディヤーイー』から次世代AIへ：ニヤーヤ認識論と検証可能な人工知能',
-        ru: 'От «Аштадхьяи» Панини к суверенным нейроархитектурам: Логика Ньяи и этичный ИИ'
+        bn: 'পকেট লজিক অ্যানালাইজার থেকে সার্বভৌম নিউরাল গিজমো: ওপেন-সিলিকন হ্যান্ডহেল্ড বিপ্লব',
+        hi: 'पॉकेट लॉजिक एनालाइज़र से लेकर न्यूरल गिज़्मो तक: ओपन-सिलिकॉन हैंडहेल्ड क्रांति',
+        fr: 'Des Analyseurs Logiques de Poche aux Gizmos Neuronaux : La Révolution RISC-V',
+        es: 'De Analizadores Lógicos de Bolsillo a Gizmos Neuronales: La Revolución RISC-V',
+        de: 'Von Taschen-Logikanalysatoren zu neuronalen Gizmos: Die Open-Silicon-Revolution',
+        zh: '从口袋逻辑分析仪到主权神经极客装置（Gizmo）：开源硅芯片掌上设备革命长文',
+        ja: 'ポケット論理アナライザから自律型ニューラル・ギズモ（Gizmo）へ：オープンシリコン革命',
+        ru: 'От карманных логических анализаторов до нейронных гизмо: Революция открытого кремния'
       },
       contentHtml: `
-        <div class="dharmic-verse">
-          <strong>॥ प्रमाणैरर्थपरीक्षणं न्यायः ॥</strong><br/>
-          <em>"Nyaya is the rigorous examination and verification of reality through valid epistemic instruments (Pramanas)." — Gautama’s Nyaya Sutra Bhashya (1.1.1)</em>
+        <div class="gizmo-verse">
+          <strong>⚙️ OPEN-SILICON GIZMO ARCHITECTURE // RISC-V VECTOR SPEC V2.0</strong><br/>
+          <em>"A truly sovereign gizmo requires zero cloud tethering: its schematics are open, its cells are standard 21700 lithium-silicon, and its neural weights execute locally on bare metal."</em>
         </div>
 
-        <h2>Chapter I: The Algorithmic Genius of Maharshi Panini’s Ashtadhyayi</h2>
-        <p>When computer scientists in the 1950s sought a formal mathematical metalanguage to define programming syntax—culminating in the Backus-Naur Form (BNF) used to specify ALGOL and every modern compiler since—scholars quickly realized that humanity had already engineered a complete, context-sensitive generative grammar over two millennia earlier. In the fifth century BCE, <strong>Maharshi Panini</strong> composed the <em>Ashtadhyayi</em>: an astonishingly compact rule-system of 3,959 <em>Sutras</em> organized across eight chapters.</p>
-        <p>What makes the <em>Ashtadhyayi</em> a marvel of computer science is not merely its subject matter, but its <strong>computational architecture</strong>:</p>
-        <p><strong>1. Shiva Sutras & Pratyahara Data Compression:</strong> Panini opens with fourteen phonological array sequences (<em>Maheshvara Sutras</em>) terminated by marker symbols (<em>Anubandhas / It-markers</em>). By referencing any starting phoneme and terminal marker, Panini constructs compressed set-slices (<em>Pratyaharas</em>)—identical in spirit to pointer slicing and regular-expression character classes in modern systems programming.</p>
-        <p><strong>2. Meta-Rules (Paribhasha) & Conflict Resolution:</strong> Just as a deterministic compiler requires operator precedence and rule-dispatch resolution, Panini formulates explicit meta-rules such as <em>Vipratishedhe param karyam</em> (1.4.2) and <em>Purvatra asiddham</em> (8.2.1), establishing a feed-forward pipeline where rules in the final three-quarters of the eighth chapter operate in a strictly ordered, unidirectional state machine.</p>
+        <h2>Chapter I: Why Dedicated Field Gizmos Are Outpacing General-Purpose Smartphones</h2>
+        <p>Smartphones are jack-of-all-trades consumption portals, but ask a network security engineer, satellite telemetry technician, or acoustic field researcher what they carry in their utility pack and you will find purpose-built <strong>multi-tool hardware gizmos</strong>. Unlike consumer phones that throttle within ninety seconds and lack physical GPIO headers, dedicated cyber-deck gizmos expose 24-channel 500MHz logic analyzers, sub-GHz to 6GHz software-defined radios (SDR), and isolated RS-485 / CAN-bus diagnostic ports directly on the top bulkhead.</p>
+        <p>Over the past year, three architectural shifts have converged to elevate these specialist gadgets into mainstream objects of desire:</p>
+        <p><strong>1. Transflective 120Hz Memory-in-Pixel Displays:</strong> By combining a reflective cholesteric mirror layer beneath a low-power micro-LED frontlight, modern field gizmos achieve razor-sharp legibility in direct desert sunlight while drawing less than 18 milliwatts on static telemetry dashboards.</p>
+        <p><strong>2. Hall-Effect Tactile Thumb Keyboards & Optical Trackpoints:</strong> Machined PBT keycaps riding on contactless magnetic Hall sensors allow operators wearing heavyinsulated gloves to enter shell commands, adjust trigger thresholds, and scrub waveform timelines with millimeter precision.</p>
 
-        <h2>Chapter II: Why Probabilistic Next-Token Prediction Needs Navya-Nyaya Epistemology</h2>
-        <p>Contemporary Large Language Models excel at high-dimensional statistical interpolation, yet they remain vulnerable to confabulation because pure autoregressive token sampling lacks an internal epistemic verifier. In the classical Indian philosophical tradition, the schools of <strong>Nyaya</strong> (founded by Akshapada Gautama) and <strong>Navya-Nyaya</strong> (refined by Gangesha Upadhyaya in Mithila and Raghunatha Shiromani in Navadvipa) dedicated centuries to a single question: <em>How do we distinguish valid cognition (Prama) from pseudo-cognition and hallucination (Aprama / Hetvabhasa)?</em></p>
-        <blockquote>"A statement that is merely fluent is not yet knowledge. Until a proposition is grounded in Pratyaksha (direct empirical telemetry), Anumana (sound invariance inference), and Aptopadesha (verified source authority), it remains Samshaya (doubt) or Viparyaya (illusion)."</blockquote>
-        <p>By embedding a <strong>Neuro-Symbolic Pramana Verification Layer</strong> atop transformer representations, modern AI engineers are translating Navya-Nyaya’s property-location relational graphs (<em>Avacchedaka-Avacchinna</em> notation) into formal type-checkers for machine reasoning. Every generated claim is decomposed into subject (<em>Paksha</em>), predicate (<em>Sadhya</em>), and grounding reason (<em>Hetu</em>), checked against invariant entailment rules (<em>Vyapti</em>), and rejected if it commits any of the five classical logical fallacies (<em>Savyabhichara, Viruddha, Satpratipaksha, Asiddha, or Badhita</em>).</p>
+        <h2>Chapter II: 64-Bit RISC-V Vector Clusters and Deterministic Real-Time Execution</h2>
+        <p>At the heart of this year’s flagship open-hardware gizmo sits an 8-core 64-bit RISC-V system-on-chip fabricated on a 3nm FinFET node, paired with a dedicated real-time microcontroller island. Why does deterministic execution matter on a hardware gizmo? When you are bit-banging custom industrial protocols or capturing nanosecond-accurate laser time-of-flight pulses, an operating-system scheduler interrupt can ruin a measurement.</p>
+        <blockquote>"By partitioning hard real-time I/O onto a lockstep RISC-V core with dedicated SRAM while running Linux and local multimodal transformers on the primary vector cluster, a single pocket gizmo replaces an entire workbench of oscilloscopes and spectrum analyzers."</blockquote>
+        <p>Furthermore, because the instruction-set architecture is royalty-free and fully documented down to the register-transfer level (RTL), university labs and independent gizmo makers can synthesize custom cryptographic and signal-processing instructions directly into the onboard FPGA fabric.</p>
 
-        <h2>Chapter III: Vakyapadiya, Sphota Theory, and Latent Semantic Embeddings</h2>
-        <p>Centuries after Panini, the grammarian-philosopher <strong>Bhartrihari</strong> authored the <em>Vakyapadiya</em>, articulating the doctrine of <strong>Sphota</strong>—the indivisible flash of holistic meaning that precedes and transcends sequential phonetic tokens. According to Bhartrihari, language unfolds across four ontological strata: <em>Vaikhari</em> (the articulated acoustic/token sequence), <em>Madhyama</em> (the internal syntactic tree structured in working memory), <em>Pashyanti</em> (the non-sequential, high-dimensional semantic gestalt), and <em>Para</em> (the unmanifest source of consciousness).</p>
-        <p>Any researcher inspecting the attention matrices of a deep neural network immediately recognizes this hierarchy: surface tokens (<em>Vaikhari</em>) are projected into intermediate syntactic attention heads (<em>Madhyama</em>) and consolidated into a continuous, cross-lingual latent semantic vector (<em>Pashyanti</em>) where meaning exists prior to its decoding into Bengali, Hindi, Sanskrit, English, or Japanese!</p>
+        <h2>Chapter III: Int4 Quantized Edge NPUs Running 32-Billion Parameter Models Offline</h2>
+        <p>Until recently, running a capable code-generation or circuit-debugging model required an active fiber connection to a hyperscale datacenter. By integrating stacked high-bandwidth LPDDR6 memory directly atop a 45-TOPS sparse-matrix neural processing unit (NPU), the newest pocket gizmos execute 32B-parameter technical models entirely offline at 28 tokens per second.</p>
+        <p>Point the gizmo’s macro thermal camera at a malfunctioning multi-layer PCB, and the local vision-language engine overlays component pinouts from its internal datasheet library, highlights the overheating voltage regulator, and calculates the exact replacement resistor value on screen—whether you are in an underground subway tunnel or a high-altitude observatory.</p>
 
-        <h2>Chapter IV: Dharma-Guided AI and Ahimsa in Autonomous Systems</h2>
-        <p>Ultimately, the Dharmic tradition reminds us that intelligence (<em>Medha</em>) finds its fulfillment only in <em>Karuna</em> (compassion), <em>Satya</em> (truthfulness), and <em>Ahimsa</em> (non-harm). As autonomous agents begin managing power grids, medical diagnostics, and scientific discovery, grounding our architectures in transparent epistemic verification and universal welfare ensures that artificial intelligence serves as an ally to human flourishing.</p>
+        <h2>Chapter IV: Designing Hardware Built to Last Decades</h2>
+        <p>The ultimate measure of a great gizmo is how gracefully it ages. With tool-less dual-battery bays, socketed M.2 storage, and complete KiCad board files stored on a dedicated ROM partition inside the device itself, this generation of open-silicon gizmos proves that cutting-edge performance and timeless repairability belong together.</p>
       `
     },
     {
@@ -1053,9 +1050,9 @@ const FNGDGT_DEFAULT_STATE = {
       eraSlug: 'industrial-revolution',
       authorName: 'Dr. Julian Vance',
       authorRole: 'Historian of Computing & Cybernetics',
-      coverImage: 'assets/dharmic_industrial_mural.jpg',
+      coverImage: 'assets/gizmo_industrial_mural.jpg',
       excerpt: 'Before photolithography etched billions of gates onto silicon, the separation of memory ("the Store") and central processor ("the Mill") was born in precision brass clockwork.',
-      isDharmic: false,
+      isGizmo: false,
       isFeatured: false,
       reviewScore: 9.3,
       wordCount: 510,
@@ -1099,7 +1096,7 @@ const FNGDGT_DEFAULT_STATE = {
       id: 501,
       postId: 2,
       readerName: 'Dr. Vikramjit Mukherjee',
-      readerText: 'The parallel between Sankhya’s Samyavastha of Gunas and unitary evolution in Hilbert space prior to measurement is one of the clearest syntheses I have ever read in tech journalism.',
+      readerText: 'The oscilloscope breakdown of the 300-micron piezoelectric ceramic actuator stack and the 80 Gbps expanded-beam optical coupler is one of the clearest hardware teardowns I have ever read.',
       createdAt: '2026-10-30T10:15:00Z'
     },
     {
@@ -1350,7 +1347,7 @@ function fngdgtRenderHeroBento() {
           <div class="absolute top-4 left-4 flex flex-wrap gap-2">
             <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider era-accent-bg shadow">${fngdgtT('heroBadge')}</span>
             <span class="px-3 py-1 rounded-full text-xs font-semibold bg-white/85 text-emerald-700 border border-emerald-500/35">${fngdgtTranslateCategory(leadPost.category)}</span>
-            ${leadPost.isDharmic ? `<span class="px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-800 border border-amber-400/40">${fngdgtT('dharmicBadge')}</span>` : ''}
+            ${leadPost.isGizmo ? `<span class="px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-800 border border-amber-400/40">${fngdgtT('gizmoBadge')}</span>` : ''}
           </div>
           ${leadPost.reviewScore ? `
           <div class="absolute top-4 right-4 w-11 h-11 rounded-xl bg-white/90 backdrop-blur-sm shadow-sm border border-amber-500/45 flex flex-col items-center justify-center">
@@ -1400,7 +1397,7 @@ function fngdgtRenderHeroBento() {
             <div class="p-5 flex-1 flex flex-col justify-between">
               <div>
                 <div class="flex items-center gap-2 mb-1.5">
-                  ${post.isDharmic ? `<span class="text-[11px] font-bold uppercase tracking-wider text-amber-700">✦ ${fngdgtT('dharmicBadge')}</span>` : `<span class="text-[11px] font-semibold uppercase tracking-wider text-slate-600">${post.authorName}</span>`}
+                  ${post.isGizmo ? `<span class="text-[11px] font-bold uppercase tracking-wider text-amber-700">✦ ${fngdgtT('gizmoBadge')}</span>` : `<span class="text-[11px] font-semibold uppercase tracking-wider text-slate-600">${post.authorName}</span>`}
                 </div>
                 <h2 class="text-base sm:text-lg font-bold leading-snug mb-2 cursor-pointer hover:text-emerald-700 transition-colors" onclick="fngdgtOpenArticleModal(${post.id})">
                   ${fngdgtGetLocalizedPostTitle(post)}
@@ -1493,10 +1490,10 @@ function fngdgtGetFilteredAndSortedPosts() {
     if (fngdgtRuntime.selectedEra !== 'ALL' && post.eraSlug !== fngdgtRuntime.selectedEra) {
       return false;
     }
-    if (fngdgtRuntime.selectedFormat === 'dharmic' && !post.isDharmic) {
+    if (fngdgtRuntime.selectedFormat === 'gizmo' && !post.isGizmo) {
       return false;
     }
-    if (fngdgtRuntime.selectedFormat === 'standard' && post.isDharmic) {
+    if (fngdgtRuntime.selectedFormat === 'standard' && post.isGizmo) {
       return false;
     }
     if (fngdgtRuntime.selectedFormat === 'toprated' && Number(post.reviewScore || 0) < 9.2) {
@@ -1584,7 +1581,7 @@ function fngdgtRenderBlogFeed() {
           <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
           <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
             <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-white/90 backdrop-blur-sm shadow-sm text-emerald-700 border border-emerald-500/35">${fngdgtTranslateCategory(post.category)}</span>
-            ${post.isDharmic ? `<span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-amber-500/20 text-amber-800 border border-amber-400/40">✦ ${fngdgtT('dharmicBadge')}</span>` : ''}
+            ${post.isGizmo ? `<span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-amber-500/20 text-amber-800 border border-amber-400/40">✦ ${fngdgtT('gizmoBadge')}</span>` : ''}
           </div>
           ${post.reviewScore ? `
             <span class="absolute bottom-3 right-3 px-2.5 py-1 rounded-lg text-xs font-extrabold bg-white/90 backdrop-blur-sm shadow-sm text-emerald-700 border border-amber-500/45">
@@ -1749,9 +1746,9 @@ function fngdgtRenderMuralsGallery() {
     },
     {
       title: 'Yantra Mandala & Brass Clockwork Automaton',
-      category: 'Dharmic Cybernetics & Industrial Heritage',
-      image: 'assets/dharmic_industrial_mural.jpg',
-      desc: 'Museum mural uniting Babbage-era brass differential gears with sacred Vedic geometric symmetry and fiber optics.'
+      category: 'Gizmo Cybernetics & Industrial Heritage',
+      image: 'assets/gizmo_industrial_mural.jpg',
+      desc: 'Museum mural uniting Babbage-era brass differential gears with precision gizmo geometric symmetry and fiber optics.'
     }
   ];
 
@@ -1806,7 +1803,7 @@ function fngdgtRenderContactSection() {
   `;
 }
 
-// 13. ARTICLE READER MODAL (Supports Long-Form Dharmic Typography, Audio TTS, Font Scaling & Comments)
+// 13. ARTICLE READER MODAL (Supports Long-Form Gizmo Typography, Audio TTS, Font Scaling & Comments)
 function fngdgtOpenArticleModal(postId) {
   const post = fngdgtState.posts.find(p => p.id === Number(postId));
   if (!post) return;
@@ -1829,7 +1826,7 @@ function fngdgtOpenArticleModal(postId) {
       <div class="absolute bottom-4 left-4 right-4 flex flex-wrap items-center justify-between gap-2">
         <div class="flex flex-wrap gap-2">
           <span class="px-3 py-1 rounded-full text-xs font-bold era-accent-bg">${fngdgtTranslateCategory(post.category)}</span>
-          ${post.isDharmic ? `<span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/25 text-amber-800 border border-amber-400/40">✦ ${fngdgtT('dharmicBadge')}</span>` : ''}
+          ${post.isGizmo ? `<span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/25 text-amber-800 border border-amber-400/40">✦ ${fngdgtT('gizmoBadge')}</span>` : ''}
           ${eraObj ? `<span class="px-3 py-1 rounded-full text-xs font-semibold bg-white/90 text-slate-800">${eraObj.name}</span>` : ''}
         </div>
         ${post.reviewScore ? `<span class="px-3 py-1 rounded-xl text-sm font-extrabold bg-white/90 backdrop-blur-sm shadow-sm text-emerald-700 border border-amber-500/45">Score: ${post.reviewScore} / 10</span>` : ''}
@@ -1993,11 +1990,11 @@ function fngdgtFilterByEra(eraSlug) {
   if (feedEl) feedEl.scrollIntoView({ behavior: 'smooth' });
 }
 
-function fngdgtFilterDharmicOnly() {
-  fngdgtRuntime.selectedFormat = 'dharmic';
+function fngdgtFilterGizmoOnly() {
+  fngdgtRuntime.selectedFormat = 'gizmo';
   fngdgtRuntime.currentPage = 1;
   const formatSelect = document.getElementById('feedFormatFilterSelect');
-  if (formatSelect) formatSelect.value = 'dharmic';
+  if (formatSelect) formatSelect.value = 'gizmo';
   fngdgtRenderBlogFeed();
   const feedEl = document.getElementById('feedSectionAnchor');
   if (feedEl) feedEl.scrollIntoView({ behavior: 'smooth' });
@@ -2215,16 +2212,16 @@ function fngdgtApplyEditorWrapperStyle() {
   fngdgtUpdateEditorMetrics();
 }
 
-function fngdgtInsertDharmicBlockquote() {
+function fngdgtInsertGizmoBlockquote() {
   const canvas = document.getElementById('adminEditorCanvas');
   if (!canvas) return;
   const snippet = `
-    <div class="dharmic-verse">
-      <strong>॥ सत्यमेव जयते नानृतं सत्येन पन्था विततो देवयानः ॥</strong><br/>
-      <em>"Truth alone triumphs, never falsehood; through cosmic truth is unfolded the luminous path of inquiry." — Mundaka Upanishad (3.1.6)</em>
+    <div class="gizmo-verse">
+      <strong>⚙️ GIZMO TELEMETRY BENCHMARK // HARDWARE LAB SPEC V4.2</strong><br/>
+      <em>"Precision engineering leaves nothing to guesswork: every micro-volt, thermal gradient, and optical path is verified on the bench." — Fingadget Gizmo Lab</em>
     </div>
-    <h2>Section Heading: Synthesis of Darshana and Frontier Science</h2>
-    <p>Continue composing your long-form Dharmic and technological treatise here...</p>
+    <h2>Section Heading: Gizmo Architecture & Hardware Teardown</h2>
+    <p>Continue composing your long-form Gizmo and technological treatise here...</p>
   `;
   canvas.innerHTML += snippet;
   fngdgtUpdateEditorMetrics();
@@ -2255,7 +2252,7 @@ function fngdgtSaveAdminPost(e) {
   const authorName = document.getElementById('adminPostAuthor').value.trim() || 'Editorial Desk';
   const coverImage = document.getElementById('adminPostCoverImage').value;
   const reviewScore = parseFloat(document.getElementById('adminPostScore').value) || 9.3;
-  const isDharmic = document.getElementById('adminPostIsDharmic').checked;
+  const isGizmo = document.getElementById('adminPostIsGizmo').checked;
   const isFeatured = document.getElementById('adminPostIsFeatured').checked;
   const tagsRaw = document.getElementById('adminPostTags').value;
 
@@ -2278,7 +2275,7 @@ function fngdgtSaveAdminPost(e) {
     if (existing) {
       Object.assign(existing, {
         title, subtitle, category, eraSlug, authorName, coverImage,
-        reviewScore, isDharmic, isFeatured, contentHtml, excerpt,
+        reviewScore, isGizmo, isFeatured, contentHtml, excerpt,
         wordCount, charCount, readMinutes, fontFamily, fontSize, fontColor, textAlign, tags
       });
       fngdgtRecordAudit('admin', 'UPDATE_POST', 'fngdgt_blog_posts', `Updated blog post #${existing.id}: "${title}" (${wordCount} words)`);
@@ -2290,8 +2287,8 @@ function fngdgtSaveAdminPost(e) {
       id: Date.now(),
       slug: title.toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 80),
       title, subtitle, category, eraSlug, authorName,
-      authorRole: isDharmic ? 'Dharmic Cybernetics Fellow' : 'Senior Correspondent',
-      coverImage, excerpt, contentHtml, isDharmic, isFeatured, reviewScore,
+      authorRole: isGizmo ? 'Gizmo Cybernetics Fellow' : 'Senior Correspondent',
+      coverImage, excerpt, contentHtml, isGizmo, isFeatured, reviewScore,
       wordCount, charCount, readMinutes,
       views: 1, likes: 1,
       fontFamily, fontSize, fontColor, textAlign, tags,
@@ -2320,7 +2317,7 @@ function fngdgtEditAdminPost(postId) {
   document.getElementById('adminPostAuthor').value = post.authorName;
   document.getElementById('adminPostCoverImage').value = post.coverImage;
   document.getElementById('adminPostScore').value = post.reviewScore || 9.5;
-  document.getElementById('adminPostIsDharmic').checked = Boolean(post.isDharmic);
+  document.getElementById('adminPostIsGizmo').checked = Boolean(post.isGizmo);
   document.getElementById('adminPostIsFeatured').checked = Boolean(post.isFeatured);
   document.getElementById('adminPostTags').value = (post.tags || []).join(', ');
 
@@ -2355,7 +2352,7 @@ function fngdgtResetAdminPostForm() {
   if (form) form.reset();
   const canvas = document.getElementById('adminEditorCanvas');
   if (canvas) {
-    canvas.innerHTML = '<p>Compose your rich-formatted technology report or extensive Dharmic treatise here...</p>';
+    canvas.innerHTML = '<p>Compose your rich-formatted technology report or extensive Gizmo treatise here...</p>';
   }
   const submitBtn = document.getElementById('adminPostSubmitBtn');
   if (submitBtn) submitBtn.textContent = 'Publish Blog Post to Feed';
@@ -2370,7 +2367,7 @@ function fngdgtRenderAdminPostsList() {
       <td class="py-2.5 pr-3 font-bold text-slate-900">${post.title}</td>
       <td class="py-2.5 px-2 text-emerald-700">${post.category}</td>
       <td class="py-2.5 px-2 text-slate-600">${post.wordCount} words (${post.readMinutes}m)</td>
-      <td class="py-2.5 px-2">${post.isDharmic ? '<span class="text-amber-800 font-bold">Dharmic</span>' : 'Standard'}</td>
+      <td class="py-2.5 px-2">${post.isGizmo ? '<span class="text-amber-800 font-bold">Gizmo</span>' : 'Standard'}</td>
       <td class="py-2.5 pl-2 text-right space-x-1.5">
         <button type="button" onclick="fngdgtEditAdminPost(${post.id})" class="px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-700 hover:bg-cyan-500/30 font-semibold">Edit</button>
         <button type="button" onclick="fngdgtDeleteAdminPost(${post.id})" class="px-2.5 py-1 rounded bg-rose-500/20 text-rose-300 hover:bg-rose-500/30 font-semibold">Delete</button>

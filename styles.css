@@ -134,7 +134,7 @@ body.dark-mode .glass-header {
   background: rgba(10, 24, 20, 0.88);
 }
 
-/* Editorial Content & Long-Form Dharmic Typography */
+/* Editorial Content & Long-Form Gizmo Typography */
 .editorial-prose h2 {
   font-family: var(--font-display);
   font-size: 1.55rem;
@@ -169,7 +169,7 @@ body.dark-mode .glass-header {
   color: var(--text-primary);
 }
 
-.editorial-prose .dharmic-verse {
+.editorial-prose .gizmo-verse {
   margin: 1.75rem 0;
   padding: 1.35rem 1.5rem;
   border: 1px solid rgba(217, 119, 6, 0.40);
@@ -179,7 +179,7 @@ body.dark-mode .glass-header {
   color: #064E3B;
 }
 
-body.dark-mode .editorial-prose .dharmic-verse {
+body.dark-mode .editorial-prose .gizmo-verse {
   background: linear-gradient(135deg, rgba(245, 158, 11, 0.14), rgba(16, 185, 129, 0.12));
   color: #FEF3C7;
 }

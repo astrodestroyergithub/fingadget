@@ -1,7 +1,7 @@
 {
   "name": "fingadget-platform",
   "version": "2.4.0",
-  "description": "Fingadget - Next-Gen Tech Journalism, Symposium Dispatches & Dharmic Cybernetics Platform",
+  "description": "Fingadget - Next-Gen Tech Journalism, Symposium Dispatches & Gizmo Cybernetics Platform",
   "main": "app.js",
   "scripts": {
     "start": "npx netlify-cli dev",

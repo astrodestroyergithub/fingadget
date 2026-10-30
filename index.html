@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fingadget — Frontier Hardware, Deep Science &amp; Dharmic Cybernetics</title>
+  <title>Fingadget — Frontier Hardware, Deep Science &amp; Gizmo Cybernetics</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -87,7 +87,7 @@
         <div>
           <span id="siteBrandTitle" class="text-xl sm:text-2xl font-extrabold tracking-tight era-gradient-text block leading-none">Fingadget</span>
           <span id="siteBrandTagline" class="text-[11px] text-slate-600 hidden sm:block max-w-xs truncate mt-0.5">
-            The Definitive Frontier of Consumer Hardware, Deep Science &amp; Dharmic Cybernetics
+            The Definitive Frontier of Consumer Hardware, Deep Science &amp; Gizmo Cybernetics
           </span>
         </div>
       </a>
@@ -97,8 +97,8 @@
         <a href="#feedSectionAnchor" data-i18n="navFeed" class="px-3 py-1.5 rounded-lg hover:bg-emerald-50/80 transition-colors">Editorial Feed</a>
         <a href="#quickReadsAnchor" data-i18n="navQuickReads" class="px-3 py-1.5 rounded-lg hover:bg-emerald-50/80 transition-colors">Quick Dispatches</a>
         <a href="#eraExplorerAnchor" data-i18n="navEras" class="px-3 py-1.5 rounded-lg hover:bg-emerald-50/80 transition-colors">Tech Eras</a>
-        <button type="button" onclick="fngdgtFilterDharmicOnly()" class="px-3 py-1.5 rounded-lg bg-amber-500/15 text-amber-800 border border-amber-400/30 hover:bg-amber-500/25 transition-colors">
-          ✦ <span data-i18n="navDharmic">Dharmic Long-Form</span>
+        <button type="button" onclick="fngdgtFilterGizmoOnly()" class="px-3 py-1.5 rounded-lg bg-amber-500/15 text-amber-800 border border-amber-400/30 hover:bg-amber-500/25 transition-colors">
+          ✦ <span data-i18n="navGizmo">Gizmo Long-Form</span>
         </button>
         <a href="#muralsSectionAnchor" data-i18n="navMurals" class="px-3 py-1.5 rounded-lg hover:bg-emerald-50/80 transition-colors hidden md:inline-block">Visual Murals</a>
         <a href="#contactSectionAnchor" data-i18n="navContact" class="px-3 py-1.5 rounded-lg hover:bg-emerald-50/80 transition-colors hidden lg:inline-block">Newsroom Desk</a>
@@ -189,7 +189,7 @@
             <span>EDITORIAL STREAM</span>
           </div>
           <h2 data-i18n="feedHeading" class="text-2xl sm:text-3xl font-extrabold">The Common Techie Feed</h2>
-          <p data-i18n="feedSub" class="text-xs sm:text-sm text-slate-600">Filter, sort, categorize, and explore deep hardware reviews, laser symposium coverage, and Dharmic cybernetics.</p>
+          <p data-i18n="feedSub" class="text-xs sm:text-sm text-slate-600">Filter, sort, categorize, and explore deep hardware reviews, laser symposium coverage, and Gizmo cybernetics.</p>
         </div>
         <span id="feedResultsCountBadge" class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-500/35">8 Stories</span>
       </div>
@@ -202,7 +202,7 @@
         <!-- Search Input (4 cols) -->
         <div class="lg:col-span-4 relative">
           <input type="text" id="feedSearchInput" data-i18n-placeholder="searchPlaceholder"
-            placeholder="Search stories, hardware, quantum physics, or Dharmic essays..."
+            placeholder="Search stories, hardware, quantum physics, or Gizmo essays..."
             class="w-full pl-9 pr-3.5 py-2 rounded-xl bg-white border border-emerald-600/25 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-emerald-600" />
           <svg class="w-4 h-4 text-slate-600 absolute left-3 top-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
@@ -222,7 +222,7 @@
           <select id="feedFormatFilterSelect" aria-label="Filter by Format"
             class="w-full px-3 py-2 rounded-xl bg-white border border-emerald-600/25 text-xs text-slate-800 focus:outline-none focus:border-emerald-600">
             <option value="ALL" data-i18n="filterAllFormats">All Formats</option>
-            <option value="dharmic" data-i18n="formatDharmic">Dharmic Long-Form</option>
+            <option value="gizmo" data-i18n="formatGizmo">Gizmo Long-Form</option>
             <option value="standard" data-i18n="formatStandard">Standard Features</option>
             <option value="toprated" data-i18n="formatTopRated">Top Rated (9.2+)</option>
             <option value="bookmarked" data-i18n="formatBookmarked">Saved Bookmarks</option>
@@ -311,7 +311,7 @@
   </footer>
 
   <!-- ========================================================================
-       MODAL 1: FULL ARTICLE & LONG-FORM DHARMIC READER
+       MODAL 1: FULL ARTICLE & LONG-FORM GIZMO READER
        ======================================================================== -->
   <div id="articleReaderModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-white/45 backdrop-blur-md p-3 sm:p-6 overflow-y-auto">
     <div class="surface-card max-w-4xl w-full max-h-[92vh] flex flex-col overflow-hidden border border-emerald-500/35 shadow-2xl">
@@ -376,7 +376,7 @@
           <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-emerald-700/20">
             <div class="flex flex-wrap items-center gap-2">
               <button type="button" data-admin-tab="posts" onclick="fngdgtSwitchAdminTab('posts')" class="admin-tab-btn px-3.5 py-2 rounded-lg text-xs font-bold era-accent-bg">
-                1. Rich Blog &amp; Dharmic Editor
+                1. Rich Blog &amp; Gizmo Editor
               </button>
               <button type="button" data-admin-tab="quickreads" onclick="fngdgtSwitchAdminTab('quickreads')" class="admin-tab-btn px-3.5 py-2 rounded-lg text-xs font-bold bg-emerald-50 text-slate-700">
                 2. Quick-Reads Manager
@@ -408,7 +408,7 @@
           <div id="adminTab_posts" class="admin-tab-panel space-y-6">
             <form id="adminPostForm" onsubmit="fngdgtSaveAdminPost(event)" class="surface-card p-5 space-y-4 border border-emerald-700/20">
               <div class="flex flex-wrap items-center justify-between gap-2">
-                <h3 class="text-base font-extrabold">Compose / Edit Blog Post (Supports Long-Form Dharmic Treatises)</h3>
+                <h3 class="text-base font-extrabold">Compose / Edit Blog Post (Supports Long-Form Gizmo Treatises)</h3>
                 <button type="button" onclick="fngdgtResetAdminPostForm()" class="text-xs text-emerald-700 hover:underline">Clear / New Post</button>
               </div>
 
@@ -422,7 +422,7 @@
                   <label class="block text-[11px] font-bold uppercase text-slate-600 mb-1">Category</label>
                   <select id="adminPostCategory" class="w-full px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900">
                     <option value="Quantum & Subatomic">Quantum &amp; Subatomic</option>
-                    <option value="Dharmic Philosophy">Dharmic Philosophy</option>
+                    <option value="Gizmo Engineering">Gizmo Engineering</option>
                     <option value="Apple & Personal Tech">Apple &amp; Personal Tech</option>
                     <option value="Symposiums & Summits">Symposiums &amp; Summits</option>
                     <option value="Space Tech">Space Tech</option>
@@ -455,7 +455,7 @@
                   <label class="block text-[11px] font-bold uppercase text-slate-600 mb-1">HD Cover Image</label>
                   <select id="adminPostCoverImage" class="w-full px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900">
                     <option value="assets/summit_laser.jpg">Tech Summit &amp; Laser Show (HD)</option>
-                    <option value="assets/dharmic_industrial_mural.jpg">Dharmic Mandala &amp; Brass Gears (HD)</option>
+                    <option value="assets/gizmo_industrial_mural.jpg">Gizmo Mandala &amp; Brass Gears (HD)</option>
                     <option value="assets/quantum_subatomic.jpg">Quantum Cryostat &amp; Subatomic (HD)</option>
                     <option value="assets/apple_spatial.jpg">Apple Titanium &amp; Spatial Studio (HD)</option>
                     <option value="assets/space_station.jpg">Orbital Space Station (HD)</option>
@@ -469,12 +469,12 @@
                 </div>
                 <div>
                   <label class="block text-[11px] font-bold uppercase text-slate-600 mb-1">Tags (comma-separated)</label>
-                  <input type="text" id="adminPostTags" value="Quantum, Dharmic, Symposium"
+                  <input type="text" id="adminPostTags" value="Quantum, Gizmo, Symposium"
                     class="w-full px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900" />
                 </div>
                 <div class="flex items-center gap-4 pt-4">
                   <label class="flex items-center gap-1.5 text-xs text-amber-800 font-semibold cursor-pointer">
-                    <input type="checkbox" id="adminPostIsDharmic" /> Dharmic Long-Form
+                    <input type="checkbox" id="adminPostIsGizmo" /> Gizmo Long-Form
                   </label>
                   <label class="flex items-center gap-1.5 text-xs text-emerald-700 font-semibold cursor-pointer">
                     <input type="checkbox" id="adminPostIsFeatured" /> Featured Cover
@@ -489,7 +489,7 @@
                   <select id="adminEditorFontFamily" onchange="fngdgtApplyEditorWrapperStyle()" title="Font Family"
                     class="px-2.5 py-1.5 rounded bg-emerald-50 border border-emerald-600/25 text-xs text-slate-900">
                     <option value="Inter, sans-serif">Font: Inter Sans</option>
-                    <option value="Merriweather, serif">Font: Merriweather Serif (Dharmic)</option>
+                    <option value="Merriweather, serif">Font: Merriweather Serif (Gizmo)</option>
                     <option value="'Space Grotesk', sans-serif">Font: Space Grotesk</option>
                     <option value="'JetBrains Mono', monospace">Font: JetBrains Mono</option>
                     <option value="Georgia, serif">Font: Classical Georgia</option>
@@ -528,14 +528,14 @@
                   <button type="button" onclick="fngdgtFormatEditor('justifyFull')" class="px-2.5 py-1 rounded bg-emerald-50 hover:bg-emerald-100 text-xs" title="Justify">☰</button>
                   <button type="button" onclick="fngdgtFormatEditor('formatBlock', 'BLOCKQUOTE')" class="px-2.5 py-1 rounded bg-emerald-50 hover:bg-emerald-100 text-xs" title="Blockquote">❝ Quote</button>
                   <button type="button" onclick="fngdgtFormatEditor('formatBlock', 'H2')" class="px-2.5 py-1 rounded bg-emerald-50 hover:bg-emerald-100 text-xs font-bold" title="Subheading">H2</button>
-                  <button type="button" onclick="fngdgtInsertDharmicBlockquote()" class="px-2.5 py-1 rounded bg-amber-500/20 text-amber-800 border border-amber-400/40 text-xs font-semibold">
-                    + Insert Dharmic Verse Block
+                  <button type="button" onclick="fngdgtInsertGizmoBlockquote()" class="px-2.5 py-1 rounded bg-amber-500/20 text-amber-800 border border-amber-400/40 text-xs font-semibold">
+                    + Insert Gizmo Verse Block
                   </button>
                 </div>
 
                 <!-- Live Character & Word Counter Bar -->
                 <div class="flex flex-wrap items-center justify-between text-[11px] text-slate-600 pt-2 border-t border-emerald-700/20">
-                  <span>Unlimited length supported for extensive Dharmic &amp; scientific monographs</span>
+                  <span>Unlimited length supported for extensive Gizmo &amp; scientific monographs</span>
                   <div class="flex items-center gap-4 font-mono">
                     <span>Words: <strong id="editorLiveWordCount" class="text-emerald-700">12</strong></span>
                     <span>Characters: <strong id="editorLiveCharCount" class="text-emerald-700">78</strong></span>
@@ -547,7 +547,7 @@
               <!-- Editable Rich Content Canvas -->
               <div id="adminEditorCanvas" contenteditable="true"
                 class="w-full p-4 rounded-xl bg-white border border-emerald-600/25 text-sm text-slate-900 editorial-prose">
-                <p>Compose your rich-formatted technology report or extensive Dharmic treatise here...</p>
+                <p>Compose your rich-formatted technology report or extensive Gizmo treatise here...</p>
               </div>
 
               <div class="flex justify-end">
@@ -589,7 +589,7 @@
                   <option value="Apple & Personal Tech">Apple &amp; Personal Tech</option>
                   <option value="Silicon & ICs">Silicon &amp; ICs</option>
                   <option value="Space Tech">Space Tech</option>
-                  <option value="Dharmic Philosophy">Dharmic Philosophy</option>
+                  <option value="Gizmo Engineering">Gizmo Engineering</option>
                 </select>
                 <select id="adminQrEraSelect" class="px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900"></select>
                 <input type="text" id="adminQrReadTime" value="45 sec read" placeholder="Read duration..." class="px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900" />
@@ -619,7 +619,7 @@
                   <option value="assets/apple_spatial.jpg">Apple Titanium &amp; Spatial Computing</option>
                   <option value="assets/space_station.jpg">Orbital Space Technology Station</option>
                   <option value="assets/silicon_wafer.jpg">Silicon Wafer &amp; Integrated Circuits</option>
-                  <option value="assets/dharmic_industrial_mural.jpg">Industrial Brass Gears &amp; Dharmic Mandala</option>
+                  <option value="assets/gizmo_industrial_mural.jpg">Industrial Brass Gears &amp; Gizmo Mandala</option>
                 </select>
               </div>
               <textarea id="adminEraBannerSubtitle" required rows="2" placeholder="Banner Subtitle / Historical Narrative..." class="w-full px-3 py-2 rounded-lg bg-white border border-emerald-600/25 text-xs text-slate-900"></textarea>

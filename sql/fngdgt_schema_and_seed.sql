@@ -65,7 +65,7 @@ CREATE TABLE fngdgt_tech_eras (
 CREATE TABLE fngdgt_site_settings (
     fngdgt_setting_id INTEGER PRIMARY KEY DEFAULT 1 CHECK (fngdgt_setting_id = 1),
     fngdgt_site_title VARCHAR(120) NOT NULL DEFAULT 'Fingadget',
-    fngdgt_site_tagline VARCHAR(240) NOT NULL DEFAULT 'The Definitive Frontier of Consumer Hardware, Deep Science & Dharmic Cybernetics',
+    fngdgt_site_tagline VARCHAR(240) NOT NULL DEFAULT 'The Definitive Frontier of Consumer Hardware, Deep Science & Gizmo Cybernetics',
     fngdgt_active_language VARCHAR(16) NOT NULL DEFAULT 'en',
     fngdgt_active_era_slug VARCHAR(64) NOT NULL DEFAULT 'quantum-subatomic',
     fngdgt_color_mode VARCHAR(16) NOT NULL DEFAULT 'light',
@@ -79,7 +79,7 @@ BEFORE UPDATE ON fngdgt_site_settings
 FOR EACH ROW EXECUTE FUNCTION fngdgt_fn_touch_updated_at();
 
 -- ----------------------------------------------------------------------------
--- 5. TABLE: fngdgt_blog_posts (Full Editorial & Long-Form Dharmic Posts)
+-- 5. TABLE: fngdgt_blog_posts (Full Editorial & Long-Form Gizmo Posts)
 -- ----------------------------------------------------------------------------
 CREATE TABLE fngdgt_blog_posts (
     fngdgt_post_id SERIAL PRIMARY KEY,
@@ -94,7 +94,7 @@ CREATE TABLE fngdgt_blog_posts (
     fngdgt_post_image_caption VARCHAR(255) NOT NULL DEFAULT '',
     fngdgt_post_excerpt TEXT NOT NULL,
     fngdgt_post_content_html TEXT NOT NULL,
-    fngdgt_post_is_dharmic BOOLEAN NOT NULL DEFAULT FALSE,
+    fngdgt_post_is_gizmo BOOLEAN NOT NULL DEFAULT FALSE,
     fngdgt_post_is_featured BOOLEAN NOT NULL DEFAULT FALSE,
     fngdgt_post_review_score NUMERIC(3,1) DEFAULT NULL,
     fngdgt_post_word_count INTEGER NOT NULL DEFAULT 0,
@@ -192,7 +192,7 @@ SELECT
     p.fngdgt_post_author_role,
     p.fngdgt_post_cover_image,
     p.fngdgt_post_excerpt,
-    p.fngdgt_post_is_dharmic,
+    p.fngdgt_post_is_gizmo,
     p.fngdgt_post_is_featured,
     p.fngdgt_post_review_score,
     p.fngdgt_post_word_count,
@@ -245,9 +245,9 @@ INSERT INTO fngdgt_tech_eras (
     '1760 – 1946',
     'Steam, Brass Gears & Babbage Analytical Looms',
     'From Jacquard punched-card looms and thermodynamic engines to precision clockwork differential analyzers.',
-    'assets/dharmic_industrial_mural.jpg',
+    'assets/gizmo_industrial_mural.jpg',
     '#D97706', '#F59E0B', '#1C140D',
-    'Brass Jacquard mechanisms meeting Vedic mandala symmetry in early deterministic automata.',
+    'Brass Jacquard mechanisms meeting precision gizmo symmetry in early deterministic automata.',
     FALSE
 ),
 (
@@ -338,7 +338,7 @@ INSERT INTO fngdgt_site_settings (
 ) VALUES (
     1,
     'Fingadget',
-    'The Definitive Frontier of Consumer Hardware, Deep Science & Dharmic Cybernetics',
+    'The Definitive Frontier of Consumer Hardware, Deep Science & Gizmo Cybernetics',
     'en',
     'quantum-subatomic',
     'light',
@@ -399,12 +399,12 @@ INSERT INTO fngdgt_quick_reads (
     'Orbital Telemetry'
 ),
 (
-    'Panini''s Ashtadhyayi Formal Grammar Mapped to Low-Rank Neural Compiler Optimizations',
-    'Researchers demonstrate how 2,500-year-old Sanskrit meta-rules compress deterministic state-space graphs by 41%.',
-    'Dharmic Philosophy',
+    'Modular Open-Source Handheld Gizmo Packs Hot-Swappable FPGA & Neural Cartridges',
+    'Hardware hackers unveil a pocket-sized CNC-machined magnesium gizmo capable of emulating vintage silicon and running local edge models.',
+    'Gizmo Engineering',
     'artificial-intelligence',
     '1 min read',
-    'Dharmic Monograph'
+    'Gizmo Monograph'
 );
 
 -- ----------------------------------------------------------------------------
@@ -417,13 +417,13 @@ INSERT INTO fngdgt_audit_logs (
 
 
 -- ----------------------------------------------------------------------------
--- 15. SEED FULL EDITORIAL & LONG-FORM DHARMIC BLOG POSTS
+-- 15. SEED FULL EDITORIAL & LONG-FORM GIZMO BLOG POSTS
 -- ----------------------------------------------------------------------------
 INSERT INTO fngdgt_blog_posts (
     fngdgt_post_slug, fngdgt_post_title, fngdgt_post_subtitle,
     fngdgt_post_category, fngdgt_post_era_slug, fngdgt_post_author_name,
     fngdgt_post_author_role, fngdgt_post_cover_image, fngdgt_post_excerpt,
-    fngdgt_post_content_html, fngdgt_post_is_dharmic, fngdgt_post_is_featured,
+    fngdgt_post_content_html, fngdgt_post_is_gizmo, fngdgt_post_is_featured,
     fngdgt_post_review_score, fngdgt_post_word_count, fngdgt_post_char_count,
     fngdgt_post_read_minutes, fngdgt_post_views, fngdgt_post_likes,
     fngdgt_post_font_family, fngdgt_post_font_size, fngdgt_post_text_align,
@@ -445,19 +445,19 @@ INSERT INTO fngdgt_blog_posts (
     ARRAY['Quantum Computing', 'Subatomic Physics', 'Cryogenics', 'Symposium']
 ),
 (
-    'dharmic-cybernetics-akasha-sankhya-quantum-wavefunction',
-    'Akasha, Sankhya Tattvas, and the Subatomic Wavefunction: A Dharmic Treatise on Quantum Information & Conscious Observers',
-    'An extensive, multi-chapter philosophical and scientific exploration bridging classical Advaita Vedanta, Sankhya cosmology, and modern relational quantum mechanics.',
-    'Dharmic Philosophy',
+    'gizmo-cybernetics-modular-solid-state-hardware-architecture',
+    'The Anatomy of Next-Gen Modular Gizmos: Solid-State Micro-Actuators, Piezo Haptics & Self-Healing Chassis Design',
+    'An extensive, multi-chapter hardware teardown and engineering treatise exploring how precision micro-electromechanical gizmos are replacing monolithic consumer electronics.',
+    'Gizmo Engineering',
     'quantum-subatomic',
-    'Acharya Devavrata Sen & Dr. Meera Krishnan',
-    'Chair of Dharmic Philosophy & Theoretical Physics',
-    'assets/dharmic_industrial_mural.jpg',
-    'Long before Hilbert spaces and non-local Bell inequalities challenged classical materialism, the rishis of the Upanishads, Sankhya Karika, and Vaisheshika Sutras formulated rigorous ontologies of discrete atoms (Paramanu), potential fields (Prakriti), and witness consciousness (Sakshi).',
-    '<div class="dharmic-verse"><strong>॥ पूर्णमदः पूर्णमिदं पूर्णात्पूर्णमुदच्यते ॥</strong></div><h2>Chapter I: The Crisis of Naive Realism in Subatomic Physics and Classical Darshana</h2><p>In the Dharmic worldview, cosmos and cognition arise as a unified, rule-governed tapestry of information, vibration (Spanda), and causal interdependence (Satkaryavada).</p><h2>Chapter II: Kanada''s Vaisheshika Paramanu and Quantum Discreteness</h2><p>Acharya Kanada codified the Vaisheshika Sutras, proposing that materiality emerges from dynamic relational couplings of dimensionless Paramanu units.</p><h2>Chapter III: Sankhya''s Prakriti-Purusha Dialectic and Hilbert Space Superposition</h2><p>Prior to observation, Prakriti exists in Samyavastha equilibrium of Sattva, Rajas, and Tamas, projecting into manifest Tattvas upon proximity to Purusha (Sakshi).</p>',
+    'Dr. Viktor Sterling & Maya Krishnan',
+    'Chairs of Gizmo Architecture & Precision Mechatronics',
+    'assets/gizmo_industrial_mural.jpg',
+    'From magnetic pogo-pin interconnect buses and ultrasonic piezoelectric haptic arrays to liquid-metal thermal interfaces, modern flagship gizmos have evolved into marvels of repairable, field-upgradable micro-engineering.',
+    '<div class="gizmo-verse"><strong>⚙️ GIZMO LAB TELEMETRY SPEC // REV 4.8-OMEGA</strong></div><h2>Chapter I: The Renaissance of Tactile, Field-Upgradable Gizmos</h2><p>By pairing CNC-milled aerospace magnesium-lithium frames with captive Torx fasteners and gold-plated pogo buses, modern gizmos celebrate mechanical transparency without sacrificing IP68 sealing.</p><h2>Chapter II: Piezoelectric Ceramic Actuators</h2><p>Multi-layer co-fired piezoelectric ceramic stacks bonded to a titanium flexure suspension simulate crisp mechanical detents within 0.4 milliseconds.</p><h2>Chapter III: Optical Backplanes & Solid-State Cooling</h2><p>Expanded-Beam Optical couplers sustain 80 Gbps bi-directional throughput across a 1.8mm air gap while MEMS ultrasonic micro-blowers regulate thermal loads.</p>',
     TRUE, TRUE, 9.9, 1420, 9480, 14, 24680, 2150,
     'Merriweather, serif', '1.12rem', 'justify',
-    ARRAY['Dharmic Philosophy', 'Advaita Vedanta', 'Sankhya', 'Subatomic Physics', 'Long-Form']
+    ARRAY['Gizmo Engineering', 'Modular Hardware', 'Teardown', 'Mechatronics', 'Long-Form']
 ),
 (
     'cupertino-titanium-micro-oled-m5-spatial-studio',
@@ -475,20 +475,19 @@ INSERT INTO fngdgt_blog_posts (
     ARRAY['Apple Tech', 'Spatial Computing', 'Hardware Review', 'Micro-OLED']
 ),
 (
-    'panini-ashtadhyayi-nyaya-epistemology-sovereign-ai',
-    'From Panini''s Ashtadhyayi to Sovereign Neural Architectures: Nyaya Epistemology, Pramana Verification & Ethical AI',
-    'A monumental Dharmic-computational treatise examining how ancient Sanskrit generative grammars and Navya-Nyaya formal logic solve hallucination and alignment in frontier AI.',
-    'Dharmic Philosophy',
+    'open-silicon-risc-v-pocket-gizmos-edge-neural-workstations',
+    'From Pocket Logic Analyzers to Sovereign Neural Gizmos: Inside the Open-Silicon Handheld Revolution',
+    'A comprehensive engineering monograph on how open-source RISC-V cores, e-ink hybrid displays, and ultra-low-power NPU co-processors are powering autonomous field gizmos.',
+    'Gizmo Engineering',
     'artificial-intelligence',
     'Prof. Siddharth Chatterjee & Dr. Ananya Bose',
-    'Computational Sanskrit & AI Alignment Fellows',
-    'assets/dharmic_industrial_mural.jpg',
-    'Two thousand five hundred years before Backus-Naur Form and Turing machines, Maharshi Panini compressed the entire generative morphology of Sanskrit into 3,959 algebraic sutras.',
-    '<div class="dharmic-verse"><strong>॥ प्रमाणैरर्थपरीक्षणं न्यायः ॥</strong></div><h2>Chapter I: The Algorithmic Genius of Maharshi Panini''s Ashtadhyayi</h2><p>Panini constructs compressed Pratyahara set-slices and Paribhasha meta-rules that mirror modern formal compiler optimization.</p><h2>Chapter II: Navya-Nyaya Epistemology & Pramana Verification</h2><p>Embedding a Neuro-Symbolic Pramana Verification Layer ensures AI propositions are grounded in Pratyaksha, Anumana, and Aptopadesha.</p>',
+    'Lead Systems Architects, Open-Silicon Gizmo Lab',
+    'assets/gizmo_industrial_mural.jpg',
+    'A new breed of pocketable engineering gizmos combines sunlight-readable transflective displays, tactile mechanical thumb-keyboards, software-defined radio transceivers, and 45-TOPS edge neural engines that run completely offline.',
+    '<div class="gizmo-verse"><strong>⚙️ OPEN-SILICON GIZMO ARCHITECTURE // RISC-V VECTOR SPEC V2.0</strong></div><h2>Chapter I: Why Dedicated Field Gizmos Are Outpacing Smartphones</h2><p>Dedicated cyber-deck gizmos expose 24-channel 500MHz logic analyzers, sub-GHz to 6GHz software-defined radios, and isolated RS-485 diagnostic ports on the top bulkhead.</p><h2>Chapter II: 64-Bit RISC-V Vector Clusters & Edge NPUs</h2><p>Integrating stacked LPDDR6 memory atop a 45-TOPS sparse-matrix NPU allows pocket gizmos to execute 32B technical models completely offline.</p>',
     TRUE, FALSE, 9.9, 1310, 8920, 13, 21340, 1940,
     'Merriweather, serif', '1.12rem', 'justify',
-    ARRAY['Dharmic Philosophy', 'Panini Ashtadhyayi', 'Nyaya Logic', 'Artificial Intelligence', 'Long-Form']
+    ARRAY['Gizmo Engineering', 'RISC-V', 'Handheld Hardware', 'Edge AI', 'Long-Form']
 );
 
 COMMIT;
-

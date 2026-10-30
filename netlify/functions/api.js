@@ -134,7 +134,7 @@ exports.handler = async (event) => {
             fngdgt_post_slug, fngdgt_post_title, fngdgt_post_subtitle, fngdgt_post_category,
             fngdgt_post_era_slug, fngdgt_post_author_name, fngdgt_post_author_role,
             fngdgt_post_cover_image, fngdgt_post_excerpt, fngdgt_post_content_html,
-            fngdgt_post_is_dharmic, fngdgt_post_is_featured, fngdgt_post_review_score,
+            fngdgt_post_is_gizmo, fngdgt_post_is_featured, fngdgt_post_review_score,
             fngdgt_post_word_count, fngdgt_post_char_count, fngdgt_post_read_minutes,
             fngdgt_post_font_family, fngdgt_post_font_size, fngdgt_post_font_color,
             fngdgt_post_text_align, fngdgt_post_tags
@@ -145,7 +145,7 @@ exports.handler = async (event) => {
           body.slug, body.title, body.subtitle || '', body.category,
           body.eraSlug || 'quantum-subatomic', body.authorName || 'Editorial Desk', body.authorRole || 'Senior Editor',
           body.coverImage || 'assets/summit_laser.jpg', body.excerpt || '', body.contentHtml || '',
-          Boolean(body.isDharmic), Boolean(body.isFeatured), body.reviewScore || 9.2,
+          Boolean(body.isGizmo), Boolean(body.isFeatured), body.reviewScore || 9.2,
           Number(body.wordCount || 0), Number(body.charCount || 0), Number(body.readMinutes || 5),
           body.fontFamily || 'Inter, sans-serif', body.fontSize || '1.08rem', body.fontColor || 'inherit',
           body.textAlign || 'left', Array.isArray(body.tags) ? body.tags : []
@@ -159,14 +159,14 @@ exports.handler = async (event) => {
           UPDATE fngdgt_blog_posts SET
             fngdgt_post_title = $1, fngdgt_post_subtitle = $2, fngdgt_post_category = $3,
             fngdgt_post_era_slug = $4, fngdgt_post_author_name = $5, fngdgt_post_cover_image = $6,
-            fngdgt_post_excerpt = $7, fngdgt_post_content_html = $8, fngdgt_post_is_dharmic = $9,
+            fngdgt_post_excerpt = $7, fngdgt_post_content_html = $8, fngdgt_post_is_gizmo = $9,
             fngdgt_post_is_featured = $10, fngdgt_post_word_count = $11, fngdgt_post_char_count = $12,
             fngdgt_post_read_minutes = $13, fngdgt_post_font_family = $14, fngdgt_post_font_size = $15,
             fngdgt_post_font_color = $16, fngdgt_post_text_align = $17
           WHERE fngdgt_post_id = $18 RETURNING *`;
         const vals = [
           body.title, body.subtitle || '', body.category, body.eraSlug, body.authorName,
-          body.coverImage, body.excerpt, body.contentHtml, Boolean(body.isDharmic),
+          body.coverImage, body.excerpt, body.contentHtml, Boolean(body.isGizmo),
           Boolean(body.isFeatured), Number(body.wordCount || 0), Number(body.charCount || 0),
           Number(body.readMinutes || 5), body.fontFamily || 'Inter, sans-serif',
           body.fontSize || '1.08rem', body.fontColor || 'inherit', body.textAlign || 'left',
